@@ -1,0 +1,207 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: #000000;
+  color: #fff;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 100;
+}
+
+.nav-center {
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #00ff9c;
+}
+
+
+/* HERO
+.hero {
+  height: 90vh;
+  background: radial-gradient(circle at center, #0f0f0f, #000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: #00ff9c;
+}
+
+.hero p {
+  margin: 15px 0;
+  opacity: 0.8;
+} */
+
+/* FEATURE HERO SECTION (3)*/
+.feature-hero {
+  position: relative;
+  height: 75vh;
+  background: url("../assets/images/cool-setup.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.feature-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.4), #000);
+}
+
+.feature-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding: 20px;
+}
+
+.feature-content h2 {
+  font-size: 3rem;
+  color: #00ff9c;
+  margin-bottom: 20px;
+}
+
+.feature-content p {
+  font-size: 1.1rem;
+  opacity: 0.85;
+  margin-bottom: 30px;
+}
+
+.feature-content .btn-primary {
+  font-size: 1rem;
+}
+
+/* WHY CYBER GEAR */
+.why-cyber {
+  background: linear-gradient(180deg, #050505, #000);
+  margin: 20px;
+}
+
+.why-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 50px;
+}
+
+.why-text h2 {
+  font-size: 2.8rem;
+  color: #00ff9c;
+  margin-bottom: 25px;
+}
+
+.why-text p {
+  margin-bottom: 20px;
+  opacity: 0.85;
+  line-height: 1.7;
+}
+
+.why-points {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.why-item {
+  background: #0f0f0f;
+  padding: 25px;
+  border-radius: 14px;
+  transition: 0.3s ease;
+}
+
+.why-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(0, 255, 156, 0.25);
+}
+
+.why-item h3 {
+  color: #00ff9c;
+  margin-bottom: 10px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .why-container {
+    grid-template-columns: 1fr;
+  }
+}
+/* NEWSLETTER */
+.newsletter {
+  background: radial-gradient(circle at top, #0f0f0f, #000);
+  text-align: center;
+  padding: 20px;
+}
+
+.newsletter-box {
+  max-width: 600px;
+  margin: auto;
+  padding: 60px 30px;
+  background: #0b0b0b;
+  border-radius: 18px;
+  box-shadow: 0 0 40px rgba(0,255,156,0.15);
+}
+
+.newsletter h2 {
+  color: #00ff9c;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.newsletter p {
+  opacity: 0.85;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 14px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: #111;
+  color: #fff;
+}
+
+.newsletter-form button {
+  white-space: nowrap;
+}
+
+.newsletter small {
+  opacity: 0.6;
+  font-size: 0.85rem;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .newsletter-form {
+    flex-direction: column;
+  }
+}
