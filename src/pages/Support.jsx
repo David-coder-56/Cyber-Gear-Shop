@@ -2,87 +2,146 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { 
   faHeadset, faTruck, faRotateLeft, faShieldHalved, 
-  faChevronDown, faEnvelope, faMessage 
+  faChevronDown, faEnvelope, faMessage, faTimes, faPaperPlane 
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function Support() {
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [filterCategory, setFilterCategory] = useState("all");
+  const [chatOpen, setChatOpen] = useState(false);
+  const [chatMessages, setChatMessages] = useState([
+    { sender: "droid", text: "Greetings Operative. Support Droid-7 online. How may I assist your armory setup?" }
+  ]);
+  const [chatInput, setChatInput] = useState("");
 
   const faqs = [
     {
+      category: "shipping",
       q: "How do I track my cyber gear deployment?",
-      a: "Once your order is processed, a tracking link will be sent to your encrypted email. You can also monitor status in your User Dashboard under 'Active Orders'."
+      a: "Once your order is processed, a tracking link will be sent to your encrypted email coordinate. You can also monitor status in your User Dashboard under 'Active Deployments'."
     },
     {
-      q: "What is the warranty on Mechanical Keyboards?",
-      a: "All our keyboards come with a 2-year 'Cyber-Shield' warranty covering switch failures, LED malfunctions, and PCB defects."
+      category: "warranty",
+      q: "What is the warranty coverage on Mechanical Keyboards?",
+      a: "All our keyboards come with a 2-year 'Cyber-Shield' warranty covering switch failures, RGB LED malfunctions, and PCB defects."
     },
     {
+      category: "shipping",
       q: "Do you ship to international sectors?",
-      a: "Affirmative. We ship globally. Delivery times vary by sector, usually ranging from 5-12 business days."
+      a: "Affirmative. We ship globally with quantum-tracked couriers. Delivery times usually range from 3-7 business days."
     },
     {
+      category: "returns",
       q: "How do I initiate a hardware return?",
-      a: "Returns are accepted within 30 days. Gear must be in original 'factory-new' condition. Access our Return Portal to generate a shipping label."
+      a: "Returns are accepted within 30 days of arrival. Gear must be in factory condition. Access our Return Portal to generate an instant shipping label."
+    },
+    {
+      category: "tech",
+      q: "Are the wireless mice compatible with macOS and Linux?",
+      a: "Yes. All our mice feature onboard memory profiles. Settings programmed on any PC persist seamlessly across macOS, Linux, and Windows."
     }
   ];
 
+  const filteredFaqs = filterCategory === "all" 
+    ? faqs 
+    : faqs.filter(f => f.category === filterCategory);
+
+  const handleSendMessage = (e) => {
+    e.preventDefault();
+    if (!chatInput.trim()) return;
+
+    const userText = chatInput;
+    setChatMessages(prev => [...prev, { sender: "user", text: userText }]);
+    setChatInput("");
+
+    setTimeout(() => {
+      setChatMessages(prev => [
+        ...prev,
+        { sender: "droid", text: "Telemetry logged. A human engineer or dispatch droid is reviewing your inquiry." }
+      ]);
+    }, 1000);
+  };
+
   return (
-    <div className="bg-cyber-bg min-h-screen pt-24 pb-16 px-6">
+    <div className="bg-cyber-bg min-h-screen pt-24 pb-20 px-6 bg-cyber-grid">
       <div className="max-w-5xl mx-auto">
         
         {/* Header Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter">
+        <div className="text-center mb-14">
+          <span className="text-cyber-green text-xs font-mono uppercase tracking-[0.3em] block mb-2 font-bold">
+            Assistance Array // Direct Link
+          </span>
+          <h1 className="text-4xl md:text-6xl font-black text-white uppercase font-cyber tracking-tight">
             Support <span className="text-cyber-green">Hub</span>
           </h1>
-          <p className="text-white/60 mt-4 max-w-xl mx-auto">
-            Technical issues? Logistics questions? Our support droids are standing by to assist with your loadout.
+          <p className="text-white/60 mt-3 max-w-xl mx-auto font-mono text-xs md:text-sm">
+            Technical diagnostics, logistics tracking, and hardware shield claims.
           </p>
         </div>
 
-        {/* Support Grid Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-20">
+        {/* Support Grid Cards (Clickable Category Filters) */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
           {[
-            { icon: faTruck, label: "Shipping", text: "Track Deployment" },
-            { icon: faRotateLeft, label: "Returns", text: "Hardware Reset" },
-            { icon: faShieldHalved, label: "Warranty", text: "System Shield" },
-            { icon: faHeadset, label: "Tech Support", text: "Direct Link" },
-          ].map((item, i) => (
-            <div key={i} className="bg-cyber-card border border-cyber-border p-6 rounded-2xl text-center group hover:border-cyber-green hover:shadow-cyber transition-all cursor-pointer">
-              <FontAwesomeIcon icon={item.icon} className="text-cyber-green text-3xl mb-4 group-hover:scale-110 transition-transform" />
-              <h3 className="text-white font-bold uppercase tracking-widest text-sm">{item.label}</h3>
-              <p className="text-white/40 text-xs mt-1">{item.text}</p>
-            </div>
+            { id: "shipping", icon: faTruck, label: "Shipping", text: "Track Deployment" },
+            { id: "returns", icon: faRotateLeft, label: "Returns", text: "Hardware Reset" },
+            { id: "warranty", icon: faShieldHalved, label: "Warranty", text: "System Shield" },
+            { id: "tech", icon: faHeadset, label: "Tech Specs", text: "Hardware Manuals" },
+          ].map((item) => (
+            <button
+              key={item.id}
+              onClick={() => setFilterCategory(filterCategory === item.id ? "all" : item.id)}
+              className={`
+                p-6 rounded-2xl text-center transition-all cursor-pointer border
+                ${filterCategory === item.id 
+                  ? "bg-cyber-green/10 border-cyber-green shadow-cyber" 
+                  : "bg-cyber-card border-cyber-border hover:border-cyber-green/50 hover:-translate-y-1"}
+              `}
+            >
+              <FontAwesomeIcon icon={item.icon} className="text-cyber-green text-2xl mb-3" />
+              <h3 className="text-white font-bold uppercase tracking-wider text-xs font-cyber">{item.label}</h3>
+              <p className="text-white/40 text-[11px] font-mono mt-1">{item.text}</p>
+            </button>
           ))}
         </div>
 
         {/* FAQ Accordion Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           <div className="lg:col-span-2">
-            <h2 className="text-2xl font-black text-white uppercase tracking-tighter mb-8 flex items-center gap-3">
-              <span className="w-8 h-[2px] bg-cyber-green"></span>
-              Frequently Asked Questions
-            </h2>
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-xl font-black text-white uppercase font-cyber flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-cyber-green animate-pulse"></span>
+                Knowledge Base {filterCategory !== "all" && `(${filterCategory.toUpperCase()})`}
+              </h2>
+              {filterCategory !== "all" && (
+                <button
+                  onClick={() => setFilterCategory("all")}
+                  className="text-xs text-cyber-green font-mono uppercase underline"
+                >
+                  Show All
+                </button>
+              )}
+            </div>
             
-            <div className="space-y-4">
-              {faqs.map((faq, index) => (
-                <div key={index} className="border border-cyber-border rounded-xl overflow-hidden bg-cyber-card/30">
+            <div className="space-y-3">
+              {filteredFaqs.map((faq, index) => (
+                <div key={index} className="border border-cyber-border rounded-xl overflow-hidden bg-cyber-card">
                   <button 
                     onClick={() => setActiveIndex(activeIndex === index ? null : index)}
                     className="w-full p-5 flex justify-between items-center text-left hover:bg-white/5 transition-colors"
                   >
-                    <span className="text-white font-bold pr-4">{faq.q}</span>
+                    <span className="text-white font-bold text-sm pr-4 font-mono">{faq.q}</span>
                     <FontAwesomeIcon 
                       icon={faChevronDown} 
                       className={`text-cyber-green transition-transform duration-300 ${activeIndex === index ? 'rotate-180' : ''}`} 
                     />
                   </button>
-                  <div className={`transition-all duration-300 ease-in-out ${activeIndex === index ? 'max-h-40 p-5 pt-0 opacity-100' : 'max-h-0 opacity-0'}`}>
-                    <p className="text-white/60 text-sm leading-relaxed border-t border-cyber-border/50 pt-4">
-                      {faq.a}
-                    </p>
-                  </div>
+                  {activeIndex === index && (
+                    <div className="p-5 pt-0 border-t border-cyber-border/40 animate-fade-in-up">
+                      <p className="text-white/70 text-xs font-mono leading-relaxed mt-3">
+                        {faq.a}
+                      </p>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -91,30 +150,72 @@ export default function Support() {
           {/* Contact Sidebar */}
           <div className="space-y-6">
             <div className="bg-cyber-green p-8 rounded-3xl text-black">
-              <h3 className="text-xl font-black uppercase leading-tight mb-4">Still Need Assistance?</h3>
-              <p className="text-sm font-bold mb-6 opacity-80">Our elite support team responds to most pings within 2 hours.</p>
+              <h3 className="text-xl font-black uppercase font-cyber leading-tight mb-2">Need Direct Comms?</h3>
+              <p className="text-xs font-mono font-bold mb-6 opacity-85">Our support squad responds within 2 hours.</p>
               
-              <div className="space-y-4">
-                <a href="mailto:support@cybergear.shop" className="flex items-center gap-3 bg-black/10 p-3 rounded-xl hover:bg-black/20 transition-all">
+              <div className="space-y-3">
+                <a href="mailto:support@cybergear.shop" className="flex items-center gap-3 bg-black/15 p-3 rounded-xl hover:bg-black/25 transition-all text-xs font-bold font-mono">
                   <FontAwesomeIcon icon={faEnvelope} />
-                  <span className="text-xs font-black">support@cybergear.shop</span>
+                  <span>support@cybergear.shop</span>
                 </a>
-                <button className="w-full flex items-center justify-center gap-3 bg-black text-cyber-green p-3 rounded-xl hover:scale-105 transition-all">
+                
+                <button 
+                  onClick={() => setChatOpen(true)}
+                  className="w-full flex items-center justify-center gap-2 bg-black text-cyber-green p-3 rounded-xl font-cyber uppercase tracking-wider text-xs hover:brightness-125 transition-all"
+                >
                   <FontAwesomeIcon icon={faMessage} />
-                  <span className="text-xs font-black uppercase">Start Live Chat</span>
+                  Start Neural Chat
                 </button>
               </div>
             </div>
 
-            <div className="border border-cyber-border p-6 rounded-2xl bg-cyber-card/20">
-              <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-2">Office Hours</h4>
-              <p className="text-white/50 text-xs font-mono">MON-FRI: 09:00 - 18:00 EST</p>
-              <p className="text-white/50 text-xs font-mono">SAT-SUN: 10:00 - 14:00 EST</p>
+            <div className="border border-cyber-border p-6 rounded-2xl bg-cyber-card/60">
+              <h4 className="text-white font-bold text-xs uppercase font-cyber tracking-wider mb-2">Comms Windows</h4>
+              <p className="text-white/60 text-xs font-mono">MON - FRI: 08:00 - 20:00 UTC</p>
+              <p className="text-white/60 text-xs font-mono">SAT - SUN: 10:00 - 16:00 UTC</p>
             </div>
           </div>
         </div>
 
       </div>
+
+      {/* Interactive Live Chat Modal */}
+      {chatOpen && (
+        <div className="fixed bottom-6 right-6 z-[3000] w-full max-w-sm bg-black/95 border border-cyber-green rounded-2xl shadow-cyber overflow-hidden animate-fade-in-up">
+          <div className="p-4 bg-cyber-card border-b border-cyber-border flex justify-between items-center">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-cyber-green animate-ping"></span>
+              <span className="font-cyber text-xs uppercase text-white font-bold">Droid-7 Support Link</span>
+            </div>
+            <button onClick={() => setChatOpen(false)} className="text-white/50 hover:text-white">
+              <FontAwesomeIcon icon={faTimes} />
+            </button>
+          </div>
+
+          <div className="h-64 p-4 overflow-y-auto space-y-3 no-scrollbar text-xs font-mono">
+            {chatMessages.map((msg, i) => (
+              <div key={i} className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}>
+                <div className={`max-w-[80%] p-3 rounded-xl ${msg.sender === "user" ? "bg-cyber-green text-black font-bold" : "bg-white/10 text-white"}`}>
+                  {msg.text}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <form onSubmit={handleSendMessage} className="p-3 border-t border-cyber-border flex gap-2">
+            <input
+              type="text"
+              placeholder="Type message..."
+              value={chatInput}
+              onChange={(e) => setChatInput(e.target.value)}
+              className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-xs font-mono text-white outline-none focus:border-cyber-green"
+            />
+            <button type="submit" className="bg-cyber-green text-black px-4 py-2 rounded-lg font-bold text-xs">
+              <FontAwesomeIcon icon={faPaperPlane} />
+            </button>
+          </form>
+        </div>
+      )}
     </div>
   );
 }

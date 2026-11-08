@@ -1,49 +1,74 @@
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaperPlane, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import { useCart } from "../context/CartContext";
 
 export default function Newsletter() {
   const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+  const { showToast } = useCart();
 
   const handleSubscribe = (e) => {
     e.preventDefault();
-    alert(`Welcome to the network, ${email}!`);
+    if (!email) return;
+
+    setSubscribed(true);
+    showToast(`Access granted. ${email} registered into neural updates network`, "NETWORK REGISTRATION", "success");
     setEmail("");
+    setTimeout(() => setSubscribed(false), 5000);
   };
 
   return (
-    <section className="bg-[radial-gradient(circle_at_top,_#0f0f0f,_#000)] py-20 px-5 text-center">
-      <div className="max-w-[600px] mx-auto bg-[#0b0b0b] p-10 md:p-16 rounded-[18px] shadow-[0_0_40px_rgba(0,255,156,0.15)] border border-white/5">
+    <section className="bg-gradient-to-b from-black to-cyber-card py-20 px-6 text-center border-t border-cyber-border">
+      <div className="max-w-2xl mx-auto bg-black/80 backdrop-blur-xl p-8 md:p-14 rounded-3xl shadow-cyber border border-cyber-green/30 relative overflow-hidden">
         
-        <h2 className="text-cyber-green text-3xl md:text-4xl font-black uppercase tracking-tighter mb-4">
-          Join the <span className="text-white">Cyber Community</span>
+        {/* Cyber Reticle corners */}
+        <span className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-cyber-green" />
+        <span className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-cyber-green" />
+
+        <span className="text-cyber-green text-xs font-mono uppercase tracking-[0.3em] block mb-3 font-bold">
+          Encrypted Frequency // Dispatch
+        </span>
+
+        <h2 className="text-cyber-green text-3xl md:text-4xl font-black uppercase tracking-tight mb-4 font-cyber">
+          Join the <span className="text-white">Cyber Network</span>
         </h2>
         
-        <p className="text-white/85 text-base md:text-lg mb-8 leading-relaxed">
-          Be the first to know about new gear, exclusive drops,
-          discounts, and cyber tech insights.
+        <p className="text-white/80 text-sm md:text-base mb-8 leading-relaxed font-mono">
+          Receive direct firmware drops, prototype clearances, tournament discounts, and hardware blueprints before public launch.
         </p>
 
-        <form 
-          onSubmit={handleSubscribe}
-          className="flex flex-col sm:flex-row gap-3 mb-4"
-        >
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
-            required
-            className="flex-1 bg-[#111] text-white border-none outline-none p-4 rounded-lg focus:ring-2 focus:ring-cyber-green/50 transition-all placeholder:text-gray-600"
-          />
-          <button 
-            type="submit" 
-            className="bg-cyber-green text-black font-black uppercase px-8 py-4 rounded-lg transition-all hover:-translate-y-1 hover:shadow-cyber whitespace-nowrap"
+        {subscribed ? (
+          <div className="p-4 rounded-xl bg-cyber-green/10 border border-cyber-green text-cyber-green font-mono text-sm flex items-center justify-center gap-2 animate-fade-in-up">
+            <FontAwesomeIcon icon={faCheckCircle} />
+            Transmission Received. Welcome to the Neural Mesh.
+          </div>
+        ) : (
+          <form 
+            onSubmit={handleSubscribe}
+            className="flex flex-col sm:flex-row gap-3 mb-4"
           >
-            Join Now
-          </button>
-        </form>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter encrypted email coordinate..."
+              required
+              aria-label="Email address for updates"
+              className="flex-1 bg-black/90 text-white border border-cyber-border outline-none p-4 rounded-xl focus:border-cyber-green transition-all placeholder:text-white/40 font-mono text-sm"
+            />
+            <button 
+              type="submit" 
+              className="bg-cyber-green text-black font-black uppercase px-8 py-4 rounded-xl transition-all hover:-translate-y-1 hover:shadow-cyber hover:brightness-110 whitespace-nowrap font-cyber text-xs flex items-center justify-center gap-2"
+            >
+              <FontAwesomeIcon icon={faPaperPlane} size="xs" />
+              Subscribe
+            </button>
+          </form>
+        )}
 
-        <small className="text-white/40 text-xs uppercase tracking-widest">
-          No spam. Unsubscribe anytime.
+        <small className="text-white/40 text-[11px] font-mono uppercase tracking-widest block mt-4">
+          Quantum encrypted. Zero tracking spam. Unsubscribe anytime.
         </small>
       </div>
     </section>

@@ -1,64 +1,95 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft, faChevronRight, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 export default function ShopByInterest() {
+  const scrollRef = useRef(null);
+
   const interests = [
     { 
-      title: "🎮 Gaming", 
-      desc: "High-speed, competitive gear", 
+      title: "🎮 Combat Gaming", 
+      desc: "Ultra-low latency, 8k polling rate gear", 
       img: "cool-setup.jpg", 
       slug: "gaming" 
     },
     { 
-      title: "💻 Programming", 
-      desc: "Comfort for long coding hours", 
+      title: "💻 Neural Coding", 
+      desc: "Tactile mechanical comfort for long coding runs", 
       img: "coding-setup.jpg", 
       slug: "programming" 
     },
     { 
-      title: "🎧 Streaming", 
-      desc: "Crystal clear audio & control", 
+      title: "🎧 Studio Streaming", 
+      desc: "Broadcast XLR acoustic capture & lighting", 
       img: "computer_setup.jpg",
       slug: "streaming" 
     },
     { 
-      title: "🖥 Office Setup", 
-      desc: "Clean, productive workspace", 
+      title: "🖥 Cyber Workspace", 
+      desc: "Clean minimal multi-monitor productivity hubs", 
       img: "office-setup.jpg", 
       slug: "office" 
     },
     { 
-      title: "⚡ Esports", 
-      desc: "Tournament-grade performance", 
+      title: "⚡ Esports Stage", 
+      desc: "Tournament-spec hardware built for apex rank", 
       img: "esport-setup.jpg", 
       slug: "esports" 
     },
   ];
 
+  const scroll = (direction) => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({
+        left: direction === "left" ? -320 : 320,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
-    <section className="py-20 px-6 max-w-7xl mx-auto">
+    <section className="py-20 px-6 max-w-7xl mx-auto relative group/section">
       {/* Header Section */}
       <div className="flex justify-between items-end mb-8">
-        <h2 className="text-3xl md:text-4xl font-black text-cyber-green uppercase tracking-tighter">
-          Shop by <span className="text-white">Interest</span>
-        </h2>
-        <Link 
-          to="/shop" 
-          className="text-cyber-green font-bold text-sm uppercase tracking-widest hover:text-white transition-colors"
-        >
-          View All →
-        </Link>
+        <div>
+          <span className="text-cyber-green text-xs font-mono uppercase tracking-[0.25em] block mb-1">
+            Tactical Specialization
+          </span>
+          <h2 className="text-3xl md:text-5xl font-black text-cyber-green uppercase font-cyber tracking-tight">
+            Shop by <span className="text-white dark:text-white light:text-slate-900">Mission Interest</span>
+          </h2>
+        </div>
+
+        {/* Desktop Controls */}
+        <div className="hidden sm:flex gap-2">
+          <button
+            onClick={() => scroll("left")}
+            aria-label="Scroll left"
+            className="w-10 h-10 rounded-lg bg-cyber-card border border-cyber-border text-white hover:text-cyber-green hover:border-cyber-green/50 flex items-center justify-center transition-all active:scale-95 shadow-sm"
+          >
+            <FontAwesomeIcon icon={faChevronLeft} size="sm" />
+          </button>
+          <button
+            onClick={() => scroll("right")}
+            aria-label="Scroll right"
+            className="w-10 h-10 rounded-lg bg-cyber-card border border-cyber-border text-white hover:text-cyber-green hover:border-cyber-green/50 flex items-center justify-center transition-all active:scale-95 shadow-sm"
+          >
+            <FontAwesomeIcon icon={faChevronRight} size="sm" />
+          </button>
+        </div>
       </div>
 
       {/* Slider Track */}
-      {/* - 'snap-x snap-mandatory': Makes it lock into place when scrolling 
-         - 'no-scrollbar': Uses the utility we added earlier to hide the bar
-      */}
-      <div className="flex gap-6 overflow-x-auto pb-8 pt-4 snap-x snap-mandatory no-scrollbar">
+      <div
+        ref={scrollRef}
+        className="flex gap-6 overflow-x-auto pb-8 pt-4 snap-x snap-mandatory no-scrollbar"
+      >
         {interests.map((item) => (
           <Link
             key={item.slug}
             to={`/shop?interest=${item.slug}`}
-            className="group relative min-w-[320px] h-[240px] rounded-2xl overflow-hidden flex-shrink-0 snap-start transition-all duration-300 hover:-translate-y-2 hover:shadow-cyber"
+            className="group relative min-w-[320px] h-[250px] rounded-2xl overflow-hidden flex-shrink-0 snap-start transition-all duration-300 hover:-translate-y-2 hover:shadow-cyber border border-cyber-border hover:border-cyber-green/50"
           >
             {/* Background Image */}
             <div 
@@ -66,15 +97,19 @@ export default function ShopByInterest() {
               style={{ backgroundImage: `url('/assets/images/${item.img}')` }}
             ></div>
 
-            {/* Gradient Overlay (The ::before replacement) */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent rounded-2xl"></div>
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
 
             {/* Content */}
             <div className="relative z-10 h-full flex flex-col justify-end p-6">
-              <h3 className="text-2xl font-bold text-cyber-green mb-1 drop-shadow-md">
-                {item.title}
+              <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-cyber-green mb-1 font-bold">
+                Specialized Sector
+              </span>
+              <h3 className="text-xl font-bold text-white mb-1 drop-shadow-md font-cyber group-hover:text-cyber-green transition-colors flex items-center justify-between">
+                <span>{item.title}</span>
+                <FontAwesomeIcon icon={faArrowRight} className="text-xs opacity-0 group-hover:opacity-100 transition-opacity" />
               </h3>
-              <p className="text-white/85 text-sm font-medium tracking-wide">
+              <p className="text-white/70 text-xs font-mono leading-relaxed">
                 {item.desc}
               </p>
             </div>

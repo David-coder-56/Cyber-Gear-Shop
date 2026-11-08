@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import WhyCyber from "../components/why_cyber";
 import LatestProducts from "../Sections/LatestProducts";
 import Categories, { ShopCategory } from "../Sections/Categories";
