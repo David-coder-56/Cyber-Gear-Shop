@@ -7,7 +7,7 @@ export default function FeatureHero() {
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
         style={{ 
-          backgroundImage: `url('/assets/images/cool-setup.jpg')` 
+          backgroundImage: `url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1600&q=80')` 
         }}
       ></div>
 

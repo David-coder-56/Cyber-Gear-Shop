@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { useCart } from "../context/CartContext";
+import { getProductImage } from "../utils/imageHelper";
 
 const ProductCard = ({ product }) => {
   const { addToCart } = useCart();
@@ -33,12 +34,13 @@ const ProductCard = ({ product }) => {
       {/* Product Image Container */}
       <div className="relative overflow-hidden rounded-xl bg-black/40 dark:bg-black/50 light:bg-slate-100 mb-4 aspect-square flex items-center justify-center p-4">
         <img
-          src={`/assets/images/${product.img}`}
+          src={getProductImage(product.img)}
           alt={product.name}
           loading="lazy"
+          decoding="async"
           onError={(e) => {
             e.target.onerror = null;
-            e.target.src = "/assets/images/cool-setup.jpg";
+            e.target.src = "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80";
           }}
           className="h-44 w-full object-contain transition-transform duration-500 group-hover:scale-110"
         />

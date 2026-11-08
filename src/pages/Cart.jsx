@@ -14,6 +14,7 @@ import {
   faRotateLeft 
 } from "@fortawesome/free-solid-svg-icons";
 import MostPurchased from "../components/best_seller";
+import { getProductImage } from "../utils/imageHelper";
 
 export default function Cart() {
   const { cart, removeFromCart, updateQuantity, clearCart, cartTotal, showToast } = useCart();
@@ -132,8 +133,14 @@ export default function Cart() {
                     className="w-24 h-24 bg-black/60 rounded-xl p-2 flex items-center justify-center shrink-0 border border-white/5"
                   >
                     <img
-                      src={`/assets/images/${item.img}`}
+                      src={getProductImage(item.img)}
                       alt={item.name}
+                      loading="lazy"
+                      decoding="async"
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80";
+                      }}
                       className="w-full h-full object-contain"
                     />
                   </Link>

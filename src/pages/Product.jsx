@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { useState } from "react"; 
 import { products } from "../data/product";
 import { useCart } from "../context/CartContext";
+import { getProductImage } from "../utils/imageHelper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCartPlus,
@@ -82,11 +83,13 @@ const Product = () => {
             </div>
 
             <img
-              src={`/assets/images/${product.img}`}
+              src={getProductImage(product.img)}
               alt={product.name}
+              loading="lazy"
+              decoding="async"
               onError={(e) => {
                 e.target.onerror = null;
-                e.target.src = "/assets/images/cool-setup.jpg";
+                e.target.src = "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80";
               }}
               className="w-full max-h-[460px] object-contain transition-transform duration-500 group-hover:scale-105 drop-shadow-2xl"
             />
@@ -235,11 +238,13 @@ const Product = () => {
                 >
                   <div className="h-44 w-full bg-black/40 rounded-xl p-3 flex items-center justify-center mb-4">
                     <img
-                      src={`/assets/images/${p.img}`}
+                      src={getProductImage(p.img)}
                       alt={p.name}
+                      loading="lazy"
+                      decoding="async"
                       onError={(e) => {
                         e.target.onerror = null;
-                        e.target.src = "/assets/images/cool-setup.jpg";
+                        e.target.src = "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80";
                       }}
                       className="h-full object-contain transition-transform group-hover:scale-105"
                     />

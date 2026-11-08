@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { getProductImage } from "../utils/imageHelper";
 
 export default function ShopByInterest() {
   const scrollRef = useRef(null);
@@ -10,31 +11,31 @@ export default function ShopByInterest() {
     { 
       title: "🎮 Combat Gaming", 
       desc: "Ultra-low latency, 8k polling rate gear", 
-      img: "cool-setup.jpg", 
+      img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80", 
       slug: "gaming" 
     },
     { 
       title: "💻 Neural Coding", 
       desc: "Tactile mechanical comfort for long coding runs", 
-      img: "coding-setup.jpg", 
+      img: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=600&q=80", 
       slug: "programming" 
     },
     { 
       title: "🎧 Studio Streaming", 
       desc: "Broadcast XLR acoustic capture & lighting", 
-      img: "computer_setup.jpg",
+      img: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=600&q=80",
       slug: "streaming" 
     },
     { 
       title: "🖥 Cyber Workspace", 
       desc: "Clean minimal multi-monitor productivity hubs", 
-      img: "office-setup.jpg", 
+      img: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=600&q=80", 
       slug: "office" 
     },
     { 
       title: "⚡ Esports Stage", 
       desc: "Tournament-spec hardware built for apex rank", 
-      img: "esport-setup.jpg", 
+      img: "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?auto=format&fit=crop&w=600&q=80", 
       slug: "esports" 
     },
   ];
@@ -94,7 +95,7 @@ export default function ShopByInterest() {
             {/* Background Image */}
             <div 
               className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-              style={{ backgroundImage: `url('/assets/images/${item.img}')` }}
+              style={{ backgroundImage: `url('${getProductImage(item.img)}')` }}
             ></div>
 
             {/* Gradient Overlay */}

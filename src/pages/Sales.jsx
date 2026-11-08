@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBolt, faPercent, faClock, faFire, faEye, faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
+import { getProductImage } from "../utils/imageHelper";
 
 const Sale = () => {
   const { addToCart } = useCart();
@@ -138,9 +139,14 @@ const Sale = () => {
               {/* Product Image */}
               <div className="relative overflow-hidden rounded-xl bg-black/40 aspect-square flex items-center justify-center p-4 mb-4">
                 <img
-                  src={`/assets/images/${product.img}`}
+                  src={getProductImage(product.img)}
                   alt={product.name}
                   loading="lazy"
+                  decoding="async"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80";
+                  }}
                   className="h-44 w-full object-contain transition-transform duration-500 group-hover:scale-110"
                 />
               </div>

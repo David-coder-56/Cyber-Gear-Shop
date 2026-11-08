@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFire, faStar, faChevronLeft, faChevronRight, faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { products } from "../data/product";
 import { useCart } from "../context/CartContext";
+import { getProductImage } from "../utils/imageHelper";
 
 export default function MostPurchased() {
   const scrollRef = useRef(null);
@@ -75,12 +76,13 @@ export default function MostPurchased() {
             {/* Image Container */}
             <div className="relative h-60 overflow-hidden bg-black/40 dark:bg-black/40 light:bg-slate-100 flex items-center justify-center p-4">
               <img
-                src={`/assets/images/${product.img}`}
+                src={getProductImage(product.img)}
                 alt={product.name}
                 loading="lazy"
+                decoding="async"
                 onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src = "/assets/images/cool-setup.jpg";
+                  e.target.src = "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80";
                 }}
                 className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
               />

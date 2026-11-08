@@ -4,6 +4,7 @@ import { products } from "../data/product";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faFire, faGamepad, faLaptopCode, faHeadphones, faMicrochip } from "@fortawesome/free-solid-svg-icons";
 import ProductCard from "../components/ProductCard";
+import { getProductImage } from "../utils/imageHelper";
 
 export default function SearchPage() {
   const [query, setQuery] = useState("");
@@ -129,8 +130,14 @@ export default function SearchPage() {
               >
                 <div className="aspect-square rounded-xl mb-3 flex items-center justify-center p-2 bg-black/40">
                   <img
-                    src={`/assets/images/${p.img}`}
+                    src={getProductImage(p.img)}
                     alt={p.name}
+                    loading="lazy"
+                    decoding="async"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80";
+                    }}
                     className="w-full h-full object-contain group-hover:scale-105 transition-transform"
                   />
                 </div>

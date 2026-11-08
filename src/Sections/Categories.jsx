@@ -2,23 +2,24 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { getProductImage } from "../utils/imageHelper";
 
 export default function Categories() {
   const scrollRef = useRef(null);
 
   const items = [
-    { name: "All Deals", img: "mouse-1.jpg", slug: "All" },
-    { name: "Mouse", img: "mouse-1.jpg", slug: "Mouse" },
-    { name: "Keyboard", img: "keyboard2.jpg", slug: "Keyboard" },
-    { name: "Headphones", img: "headphone2.jpg", slug: "Headphones" },
-    { name: "Controllers", img: "gamepad-3.jpg", slug: "Controllers" },
-    { name: "Mics", img: "mic2.jpg", slug: "Mics" },
-    { name: "Mousepad", img: "mousepad2.jpg", slug: "Mouse Pad" },
-    { name: "Combos", img: "ipad -laptop.jpg", slug: "Combo" },
-    { name: "CPU / PC", img: "computer_setup.jpg", slug: "CPU" },
-    { name: "Webcam", img: "webcam1.jpg", slug: "Webcam" },
-    { name: "Tablets", img: "ipad1.jpg", slug: "Tablets" },
-    { name: "Laptops", img: "laptop1.jpg", slug: "Laptop" },
+    { name: "All Deals", img: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=400&q=80", slug: "All" },
+    { name: "Mouse", img: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=400&q=80", slug: "Mouse" },
+    { name: "Keyboard", img: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=400&q=80", slug: "Keyboard" },
+    { name: "Headphones", img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=400&q=80", slug: "Headphones" },
+    { name: "Controllers", img: "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?auto=format&fit=crop&w=400&q=80", slug: "Controllers" },
+    { name: "Mics", img: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=400&q=80", slug: "Mics" },
+    { name: "Mousepad", img: "https://images.unsplash.com/photo-1616440347437-b1c73416efc2?auto=format&fit=crop&w=400&q=80", slug: "Mouse Pad" },
+    { name: "Combos", img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=400&q=80", slug: "Combo" },
+    { name: "CPU / PC", img: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=400&q=80", slug: "CPU" },
+    { name: "Webcam", img: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=400&q=80", slug: "Webcam" },
+    { name: "Tablets", img: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=400&q=80", slug: "Tablets" },
+    { name: "Laptops", img: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=400&q=80", slug: "Laptop" },
   ];
 
   const scroll = (direction) => {
@@ -70,12 +71,17 @@ export default function Categories() {
             className="group flex w-[120px] flex-shrink-0 snap-start flex-col items-center"
           >
             {/* Circular Image Container with Neon Pulse Glow */}
-            <div className="relative h-28 w-28 rounded-full border-2 border-cyber-green/30 p-1 transition-all duration-300 group-hover:border-cyber-green group-hover:shadow-cyber group-hover:scale-105 bg-black/40">
+            <div className="relative h-28 w-28 rounded-full border-2 border-cyber-green/30 p-1 transition-all duration-300 group-hover:border-cyber-green group-hover:shadow-cyber group-hover:scale-105 bg-black/40 overflow-hidden">
               <img
-                src={`/assets/images/${item.img}`}
+                src={getProductImage(item.img)}
                 className="h-full w-full rounded-full object-cover transition-all duration-300 group-hover:scale-110"
                 alt={item.name}
                 loading="lazy"
+                decoding="async"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=400&q=80";
+                }}
               />
             </div>
 
@@ -92,18 +98,18 @@ export default function Categories() {
 
 export function ShopCategory() {
   const gridItems = [
-    { name: "Mouse", img: "mouse2.jpg", slug: "Mouse" },
-    { name: "Keyboard", img: "keyboard2.jpg", slug: "Keyboard" },
-    { name: "Headsets", img: "headphone1.jpg", slug: "Headphones" },
-    { name: "Controllers", img: "gamepad-6.jpg", slug: "Controllers" },
-    { name: "Mics", img: "mic2.jpg", slug: "Mics" },
+    { name: "Mouse", img: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=600&q=80", slug: "Mouse" },
+    { name: "Keyboard", img: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=600&q=80", slug: "Keyboard" },
+    { name: "Headsets", img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80", slug: "Headphones" },
+    { name: "Controllers", img: "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?auto=format&fit=crop&w=600&q=80", slug: "Controllers" },
+    { name: "Mics", img: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=600&q=80", slug: "Mics" },
   ];
 
   const sliderItems = [
-    { name: "Tablets", img: "ipad1.jpg", slug: "Tablets" },
-    { name: "Setups & Gear", img: "game-setup.jpg", slug: "Combo" },
-    { name: "CPUs & Rigs", img: "desktop-setup.jpg", slug: "CPU" },
-    { name: "Laptops", img: "laptop1.jpg", slug: "Laptop" },
+    { name: "Tablets", img: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=600&q=80", slug: "Tablets" },
+    { name: "Setups & Gear", img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80", slug: "Combo" },
+    { name: "CPUs & Rigs", img: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=600&q=80", slug: "CPU" },
+    { name: "Laptops", img: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=600&q=80", slug: "Laptop" },
   ];
 
   return (
@@ -145,7 +151,7 @@ function CategoryCard({ item }) {
       {/* Background Image with Overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-        style={{ backgroundImage: `url('/assets/images/${item.img}')` }}
+        style={{ backgroundImage: `url('${getProductImage(item.img)}')` }}
       >
         <div className="absolute inset-0 bg-black/60 group-hover:bg-black/30 transition-colors duration-300"></div>
       </div>

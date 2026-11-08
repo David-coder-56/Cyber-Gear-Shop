@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faTrash, faPlus, faMinus, faCreditCard, faShieldAlt } from "@fortawesome/free-solid-svg-icons";
+import { getProductImage } from "../utils/imageHelper";
 
 export default function CartDrawer() {
   const { isCartOpen, setIsCartOpen, cart, updateQuantity, removeFromCart, cartTotal, cartCount } = useCart();
@@ -81,8 +82,14 @@ export default function CartDrawer() {
               >
                 <div className="w-16 h-16 bg-white/5 rounded-lg flex items-center justify-center p-1 shrink-0 overflow-hidden">
                   <img
-                    src={`/assets/images/${item.img}`}
+                    src={getProductImage(item.img)}
                     alt={item.name}
+                    loading="lazy"
+                    decoding="async"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80";
+                    }}
                     className="w-full h-full object-contain"
                   />
                 </div>
