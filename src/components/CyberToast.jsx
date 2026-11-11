@@ -18,7 +18,7 @@ export default function CyberToast() {
 
   return (
     <div className="fixed bottom-6 right-6 z-[9999] max-w-sm w-full animate-fade-in-up">
-      <div className="relative overflow-hidden bg-black/90 backdrop-blur-xl border border-cyber-green text-white p-4 rounded-xl shadow-cyber">
+      <div className="relative overflow-hidden bg-white/95 dark:bg-black/90 backdrop-blur-xl border border-cyber-green text-slate-900 dark:text-white p-4 rounded-xl shadow-2xl dark:shadow-cyber">
         {/* Corner HUD markers */}
         <span className="absolute top-0 left-0 w-2 h-2 border-t border-l border-cyber-green" />
         <span className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-cyber-green" />
@@ -35,7 +35,7 @@ export default function CyberToast() {
                 {toast.title}
               </h4>
             </div>
-            <p className="text-xs text-white/90 font-medium mt-1 leading-snug">
+            <p className="text-xs text-slate-700 dark:text-white/90 font-medium mt-1 leading-snug">
               {toast.message}
             </p>
 
@@ -55,14 +55,14 @@ export default function CyberToast() {
           <button
             onClick={closeToast}
             aria-label="Dismiss notification"
-            className="text-white/40 hover:text-white transition-colors text-xs p-1"
+            className="text-slate-400 hover:text-slate-700 dark:text-white/40 dark:hover:text-white transition-colors text-xs p-1"
           >
             <FontAwesomeIcon icon={faTimes} />
           </button>
         </div>
 
         {/* Auto-depleting progress bar */}
-        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-white/10 overflow-hidden">
+        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-black/10 dark:bg-white/10 overflow-hidden">
           <div className="h-full bg-cyber-green animate-[shimmer_3.8s_linear_forwards] w-full origin-left" />
         </div>
       </div>

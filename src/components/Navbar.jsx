@@ -19,12 +19,12 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 w-full h-[65px] bg-black/90 dark:bg-black/90 light:bg-white/95 backdrop-blur-md flex items-center justify-between px-5 md:px-8 z-[1000] border-b border-cyber-border dark:border-cyber-border light:border-slate-200 transition-colors">
+      <header className="fixed top-0 w-full h-[65px] bg-white/95 dark:bg-black/90 backdrop-blur-md flex items-center justify-between px-5 md:px-8 z-[1000] border-b border-slate-200 dark:border-cyber-border transition-colors">
         
         {/* Left Section: Mobile Menu Toggle */}
         <div className="flex-1 flex justify-start items-center gap-4">
           <button 
-            className="text-white dark:text-white light:text-slate-900 text-xl cursor-pointer hover:text-cyber-green transition-colors p-1" 
+            className="text-slate-900 dark:text-white text-xl cursor-pointer hover:text-cyber-green transition-colors p-1" 
             onClick={() => setOpen(!open)} 
             aria-label="Toggle Menu"
           >
@@ -32,7 +32,7 @@ export default function Navbar() {
           </button>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center gap-6 text-xs font-mono font-bold uppercase tracking-widest text-white/70 dark:text-white/70 light:text-slate-600">
+          <nav className="hidden lg:flex items-center gap-6 text-xs font-mono font-bold uppercase tracking-widest text-slate-600 dark:text-white/70">
             <Link to="/" className="hover:text-cyber-green transition-colors">Home</Link>
             <Link to="/shop" className="hover:text-cyber-green transition-colors">Shop</Link>
             <Link to="/sales" className="hover:text-red-400 text-red-500 font-bold transition-colors">Sales</Link>
@@ -54,7 +54,7 @@ export default function Navbar() {
               }}
             />
             <span className="text-cyber-green font-black tracking-[2px] text-base md:text-lg uppercase font-cyber">
-              CYBER <span className="text-white dark:text-white light:text-slate-900">GEAR</span>
+              CYBER <span className="text-slate-900 dark:text-white">GEAR</span>
             </span>
           </Link>
         </div>
@@ -71,7 +71,7 @@ export default function Navbar() {
           <Link 
             to="/search" 
             aria-label="Search"
-            className="text-white dark:text-white light:text-slate-800 hover:text-cyber-green transition-colors p-1 text-base"
+            className="text-slate-800 dark:text-white hover:text-cyber-green transition-colors p-1 text-base"
           >
             <FontAwesomeIcon icon={faSearch} />
           </Link>
@@ -82,22 +82,22 @@ export default function Navbar() {
               onClick={() => setProfileOpen(!profileOpen)}
               onBlur={() => setTimeout(() => setProfileOpen(false), 250)}
               aria-label="User Profile"
-              className="text-white dark:text-white light:text-slate-800 hover:text-cyber-green transition-colors p-1 text-base"
+              className="text-slate-800 dark:text-white hover:text-cyber-green transition-colors p-1 text-base"
             >
               <FontAwesomeIcon icon={faUser} />
             </button>
             
             {profileOpen && (
-              <div className="absolute right-0 top-full mt-2 w-52 bg-cyber-card dark:bg-cyber-card light:bg-white border border-cyber-border dark:border-cyber-border light:border-slate-200 rounded-xl p-4 shadow-cyber animate-fade-in-up z-50">
+              <div className="absolute right-0 top-full mt-2 w-52 bg-white dark:bg-cyber-card border border-slate-200 dark:border-cyber-border rounded-xl p-4 shadow-xl dark:shadow-cyber animate-fade-in-up z-50">
                 <span className="text-[10px] font-mono text-cyber-green uppercase tracking-widest block mb-2">Neural Access</span>
-                <Link to="/contact" onClick={() => setProfileOpen(false)} className="block text-white dark:text-white light:text-slate-900 hover:text-cyber-green text-xs mb-2.5 font-bold font-mono">
+                <Link to="/contact" onClick={() => setProfileOpen(false)} className="block text-slate-900 dark:text-white hover:text-cyber-green text-xs mb-2.5 font-bold font-mono">
                   CONTACT ARMORY
                 </Link>
-                <Link to="/support" onClick={() => setProfileOpen(false)} className="block text-white dark:text-white light:text-slate-900 hover:text-cyber-green text-xs mb-2.5 font-bold font-mono">
+                <Link to="/support" onClick={() => setProfileOpen(false)} className="block text-slate-900 dark:text-white hover:text-cyber-green text-xs mb-2.5 font-bold font-mono">
                   SUPPORT CENTER
                 </Link>
-                <div className="h-px bg-cyber-border my-2"></div>
-                <div className="text-[11px] text-white/50 dark:text-white/50 light:text-slate-500 font-mono">
+                <div className="h-px bg-slate-200 dark:bg-cyber-border my-2"></div>
+                <div className="text-[11px] text-slate-500 dark:text-white/50 font-mono">
                   Guest Operative
                 </div>
               </div>
@@ -108,7 +108,7 @@ export default function Navbar() {
           <button 
             onClick={() => setIsCartOpen(true)}
             aria-label="Open cart"
-            className="relative text-white dark:text-white light:text-slate-800 hover:text-cyber-green transition-colors p-1 text-base group"
+            className="relative text-slate-800 dark:text-white hover:text-cyber-green transition-colors p-1 text-base group"
           >
             <FontAwesomeIcon icon={faShoppingCart} />
             {cartCount > 0 && (
@@ -123,8 +123,8 @@ export default function Navbar() {
         <div
           className={`
             fixed top-[65px] left-0 h-[calc(100vh-65px)] w-full sm:w-80
-            bg-cyber-card/95 dark:bg-cyber-card/95 light:bg-white/95 backdrop-blur-xl
-            border-r border-cyber-border dark:border-cyber-border light:border-slate-200
+            bg-white/95 dark:bg-cyber-card/95 backdrop-blur-xl
+            border-r border-slate-200 dark:border-cyber-border
             transition-transform duration-300 z-[999] p-6 flex flex-col justify-between
             ${open ? "translate-x-0" : "-translate-x-full"}
           `}
@@ -147,7 +147,7 @@ export default function Navbar() {
                   key={link.to}
                   to={link.to}
                   onClick={() => setOpen(false)}
-                  className="flex items-center justify-between text-white dark:text-white light:text-slate-900 hover:text-cyber-green py-2 border-b border-cyber-border/40 transition-colors uppercase"
+                  className="flex items-center justify-between text-slate-900 dark:text-white hover:text-cyber-green py-2 border-b border-slate-200 dark:border-cyber-border/40 transition-colors uppercase"
                 >
                   <span>{link.name}</span>
                   {link.badge ? (
@@ -155,7 +155,7 @@ export default function Navbar() {
                       {link.badge}
                     </span>
                   ) : (
-                    <FontAwesomeIcon icon={faArrowRight} className="text-white/20 text-xs" />
+                    <FontAwesomeIcon icon={faArrowRight} className="text-slate-400 dark:text-white/20 text-xs" />
                   )}
                 </Link>
               ))}
@@ -163,8 +163,8 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Theme Toggle inside Side Nav */}
-          <div className="pt-6 border-t border-cyber-border sm:hidden flex justify-between items-center">
-            <span className="text-xs font-mono text-white/50">Interface Scheme</span>
+          <div className="pt-6 border-t border-slate-200 dark:border-cyber-border sm:hidden flex justify-between items-center">
+            <span className="text-xs font-mono text-slate-500 dark:text-white/50">Interface Scheme</span>
             <ThemeToggle />
           </div>
         </div>

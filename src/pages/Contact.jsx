@@ -22,7 +22,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-cyber-bg min-h-screen px-6 py-24 bg-cyber-grid">
+    <div className="bg-slate-50 dark:bg-cyber-bg min-h-screen px-6 py-24 bg-cyber-grid">
       <div className="max-w-6xl mx-auto">
         
         {/* Header Section */}
@@ -30,10 +30,10 @@ const Contact = () => {
           <span className="text-cyber-green text-xs font-mono uppercase tracking-[0.3em] block mb-2">
             Secure Comms Frequency // 4096-Bit
           </span>
-          <h1 className="text-4xl md:text-6xl font-black text-white uppercase font-cyber tracking-tight">
+          <h1 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white uppercase font-cyber tracking-tight">
             Establish <span className="text-cyber-green">Connection</span>
           </h1>
-          <p className="text-white/50 mt-3 font-mono text-xs tracking-wider">
+          <p className="text-slate-500 dark:text-white/50 mt-3 font-mono text-xs tracking-wider">
             {">"} SIGNAL STATUS: ENCRYPTED // READY TO RECEIVE OPERATIVE TELEMETRY
           </p>
         </div>
@@ -42,15 +42,15 @@ const Contact = () => {
           
           {/* Left: Contact Info & Tactical Radar */}
           <div className="space-y-6">
-            <div className="bg-cyber-card border border-cyber-border rounded-2xl p-8 space-y-6">
+            <div className="bg-white dark:bg-cyber-card border border-slate-200 dark:border-cyber-border rounded-2xl p-8 space-y-6 shadow-sm">
               
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-cyber-green/10 rounded-xl flex items-center justify-center text-cyber-green shrink-0 border border-cyber-green/20">
                   <FontAwesomeIcon icon={faLocationDot} />
                 </div>
                 <div>
-                  <h4 className="text-white font-bold uppercase text-xs font-cyber tracking-wider mb-1">HQ Coordinates</h4>
-                  <p className="text-white/60 text-sm font-mono">Sector 14, Coleman Avenue, Innovation Hub</p>
+                  <h4 className="text-slate-900 dark:text-white font-bold uppercase text-xs font-cyber tracking-wider mb-1">HQ Coordinates</h4>
+                  <p className="text-slate-600 dark:text-white/60 text-sm font-mono">Sector 14, Coleman Avenue, Innovation Hub</p>
                 </div>
               </div>
 
@@ -59,8 +59,8 @@ const Contact = () => {
                   <FontAwesomeIcon icon={faPhone} />
                 </div>
                 <div>
-                  <h4 className="text-white font-bold uppercase text-xs font-cyber tracking-wider mb-1">Voice Frequency</h4>
-                  <a href="tel:+231776766055" className="text-white/60 hover:text-cyber-green text-sm font-mono transition-colors">
+                  <h4 className="text-slate-900 dark:text-white font-bold uppercase text-xs font-cyber tracking-wider mb-1">Voice Frequency</h4>
+                  <a href="tel:+231776766055" className="text-slate-600 dark:text-white/60 hover:text-cyber-green text-sm font-mono transition-colors">
                     +231 (0) 77-676-6055
                   </a>
                 </div>
@@ -71,8 +71,8 @@ const Contact = () => {
                   <FontAwesomeIcon icon={faGlobe} />
                 </div>
                 <div>
-                  <h4 className="text-white font-bold uppercase text-xs font-cyber tracking-wider mb-1">Global Mesh</h4>
-                  <a href="mailto:davidbankole56@gmail.com" className="text-white/60 hover:text-cyber-green text-sm font-mono transition-colors">
+                  <h4 className="text-slate-900 dark:text-white font-bold uppercase text-xs font-cyber tracking-wider mb-1">Global Mesh</h4>
+                  <a href="mailto:davidbankole56@gmail.com" className="text-slate-600 dark:text-white/60 hover:text-cyber-green text-sm font-mono transition-colors">
                     davidbankole56@gmail.com
                   </a>
                 </div>
@@ -80,7 +80,7 @@ const Contact = () => {
             </div>
 
             {/* Tactical Radar Display Box */}
-            <div className="h-64 rounded-2xl border border-cyber-border bg-black/80 relative overflow-hidden group flex items-center justify-center">
+            <div className="h-64 rounded-2xl border border-slate-200 dark:border-cyber-border bg-slate-900 dark:bg-black/80 relative overflow-hidden group flex items-center justify-center">
               <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#00ff9c_1px,transparent_1px)] [background-size:16px_16px]"></div>
               
               <div className="w-44 h-44 rounded-full border border-cyber-green/30 border-dashed animate-spin-slow flex items-center justify-center">
@@ -106,7 +106,7 @@ const Contact = () => {
           </div>
 
           {/* Right: The Terminal Form */}
-          <div className="bg-cyber-card border border-cyber-border rounded-2xl p-8 shadow-cyber">
+          <div className="bg-white dark:bg-cyber-card border border-slate-200 dark:border-cyber-border rounded-2xl p-8 shadow-sm dark:shadow-cyber">
             <span className="text-cyber-green text-[10px] font-mono uppercase tracking-[0.25em] block mb-4">
               Transmission Terminal
             </span>
@@ -124,7 +124,7 @@ const Contact = () => {
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full p-4 rounded-xl bg-black/60 border border-cyber-border text-white focus:border-cyber-green outline-none transition-all font-mono text-sm"
+                    className="w-full p-4 rounded-xl bg-slate-50 dark:bg-black/60 border border-slate-300 dark:border-cyber-border text-slate-900 dark:text-white focus:border-cyber-green outline-none transition-all font-mono text-sm"
                   />
                 </div>
 
@@ -139,7 +139,7 @@ const Contact = () => {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full p-4 rounded-xl bg-black/60 border border-cyber-border text-white focus:border-cyber-green outline-none transition-all font-mono text-sm"
+                    className="w-full p-4 rounded-xl bg-slate-50 dark:bg-black/60 border border-slate-300 dark:border-cyber-border text-slate-900 dark:text-white focus:border-cyber-green outline-none transition-all font-mono text-sm"
                   />
                 </div>
               </div>
@@ -155,7 +155,7 @@ const Contact = () => {
                   required
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full p-4 rounded-xl bg-black/60 border border-cyber-border text-white focus:border-cyber-green outline-none transition-all resize-none font-mono text-sm"
+                  className="w-full p-4 rounded-xl bg-slate-50 dark:bg-black/60 border border-slate-300 dark:border-cyber-border text-slate-900 dark:text-white focus:border-cyber-green outline-none transition-all resize-none font-mono text-sm"
                 />
               </div>
 

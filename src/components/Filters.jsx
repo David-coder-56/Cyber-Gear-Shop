@@ -27,7 +27,7 @@ const Filters = ({ category, setCategory, price, setPrice, onReset }) => {
   ];
 
   return (
-    <div className="space-y-8 bg-cyber-card dark:bg-cyber-card light:bg-white p-6 rounded-2xl border border-cyber-border dark:border-cyber-border light:border-slate-200 backdrop-blur-sm">
+    <div className="space-y-8 bg-white dark:bg-cyber-card p-6 rounded-2xl border border-slate-200 dark:border-cyber-border backdrop-blur-sm shadow-sm">
       {/* Category Section */}
       <div>
         <div className="flex items-center justify-between mb-4 text-cyber-green">
@@ -38,7 +38,7 @@ const Filters = ({ category, setCategory, price, setPrice, onReset }) => {
           {onReset && (
             <button
               onClick={onReset}
-              className="text-[10px] text-white/40 dark:text-white/40 light:text-slate-400 hover:text-cyber-green flex items-center gap-1 font-mono uppercase"
+              className="text-[10px] text-slate-400 dark:text-white/40 hover:text-cyber-green flex items-center gap-1 font-mono uppercase"
             >
               <FontAwesomeIcon icon={faRotateRight} size="xs" /> Reset
             </button>
@@ -57,7 +57,7 @@ const Filters = ({ category, setCategory, price, setPrice, onReset }) => {
                 ${
                   category.toLowerCase() === cat.toLowerCase()
                     ? "bg-cyber-green text-black shadow-cyber"
-                    : "text-white/70 dark:text-white/70 light:text-slate-700 hover:text-cyber-green hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-slate-100"
+                    : "text-slate-700 dark:text-white/70 hover:text-cyber-green hover:bg-slate-100 dark:hover:bg-white/5"
                 }
               `}
             >
@@ -71,7 +71,7 @@ const Filters = ({ category, setCategory, price, setPrice, onReset }) => {
       </div>
 
       {/* Price Section */}
-      <div className="pt-4 border-t border-cyber-border/80">
+      <div className="pt-4 border-t border-slate-200 dark:border-cyber-border/80">
         <div className="flex justify-between items-center mb-4">
           <div className="flex items-center gap-2 text-cyber-green">
             <FontAwesomeIcon icon={faTags} className="text-xs" />
@@ -90,9 +90,9 @@ const Filters = ({ category, setCategory, price, setPrice, onReset }) => {
             step="20"
             value={price}
             onChange={(e) => setPrice(Number(e.target.value))}
-            className="w-full h-1.5 bg-cyber-border rounded-lg appearance-none cursor-pointer accent-cyber-green"
+            className="w-full h-1.5 bg-slate-200 dark:bg-cyber-border rounded-lg appearance-none cursor-pointer accent-cyber-green"
           />
-          <div className="flex justify-between mt-2 text-[10px] font-mono text-white/40 dark:text-white/40 light:text-slate-400">
+          <div className="flex justify-between mt-2 text-[10px] font-mono text-slate-400 dark:text-white/40">
             <span>$20</span>
             <span>$1,500</span>
             <span>$3,000</span>
@@ -109,7 +109,7 @@ const Filters = ({ category, setCategory, price, setPrice, onReset }) => {
                 py-1.5 px-2 rounded text-[10px] font-mono uppercase font-bold transition-all border
                 ${price === preset.val 
                   ? "border-cyber-green text-cyber-green bg-cyber-green/10"
-                  : "border-cyber-border text-white/50 dark:text-white/50 light:text-slate-500 hover:text-white hover:border-white/30"
+                  : "border-slate-200 dark:border-cyber-border text-slate-600 dark:text-white/50 hover:text-slate-900 dark:hover:text-white hover:border-slate-400 dark:hover:border-white/30"
                 }
               `}
             >
@@ -120,7 +120,7 @@ const Filters = ({ category, setCategory, price, setPrice, onReset }) => {
       </div>
       
       {/* Status Node */}
-      <div className="pt-4 border-t border-cyber-border/80 flex items-center justify-between text-[10px] font-mono text-white/40 dark:text-white/40 light:text-slate-400">
+      <div className="pt-4 border-t border-slate-200 dark:border-cyber-border/80 flex items-center justify-between text-[10px] font-mono text-slate-400 dark:text-white/40">
         <span className="flex items-center gap-1.5">
           <span className="w-1.5 h-1.5 rounded-full bg-cyber-green animate-pulse"></span>
           ARMORY_ONLINE

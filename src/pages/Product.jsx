@@ -58,11 +58,11 @@ const Product = () => {
   }
 
   return (
-    <div className="bg-cyber-bg dark:bg-cyber-bg light:bg-slate-50 min-h-screen transition-colors duration-300 pt-24 pb-20 bg-cyber-grid">
+    <div className="bg-slate-50 dark:bg-cyber-bg min-h-screen transition-colors duration-300 pt-24 pb-20 bg-cyber-grid">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-xs font-mono text-white/50 dark:text-white/50 light:text-slate-500 mb-8">
+        <div className="flex items-center gap-2 text-xs font-mono text-slate-500 dark:text-white/50 mb-8">
           <Link to="/" className="hover:text-cyber-green">HOME</Link>
           <span>/</span>
           <Link to="/shop" className="hover:text-cyber-green">SHOP</Link>
@@ -76,7 +76,7 @@ const Product = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mb-20 items-center">
           
           {/* Left: Product Image Stage */}
-          <div className="bg-cyber-card dark:bg-cyber-card light:bg-white border border-cyber-border dark:border-cyber-border light:border-slate-200 rounded-3xl p-8 lg:p-14 flex items-center justify-center relative group shadow-cyberCard">
+          <div className="bg-white dark:bg-cyber-card border border-slate-200 dark:border-cyber-border rounded-3xl p-8 lg:p-14 flex items-center justify-center relative group shadow-lg dark:shadow-cyberCard">
             {/* Background Category Watermark */}
             <div className="absolute top-6 left-6 text-cyber-green/10 text-5xl md:text-7xl font-black select-none uppercase font-cyber pointer-events-none">
               {product.category}
@@ -115,19 +115,19 @@ const Product = () => {
                   <div className="flex items-center gap-1 text-yellow-400 text-xs font-mono font-bold">
                     <FontAwesomeIcon icon={faStar} />
                     <span>{product.stats.rating}</span>
-                    <span className="text-white/40 dark:text-white/40 light:text-slate-400 ml-1 font-normal">
+                    <span className="text-slate-400 dark:text-white/40 ml-1 font-normal">
                       ({product.stats.sold || "Verified Pro Gear"})
                     </span>
                   </div>
                 )}
               </div>
 
-              <h1 className="text-3xl md:text-5xl font-black text-white dark:text-white light:text-slate-900 uppercase font-cyber tracking-tight leading-tight">
+              <h1 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white uppercase font-cyber tracking-tight leading-tight">
                 {product.name}
               </h1>
             </div>
 
-            <p className="text-white/70 dark:text-white/70 light:text-slate-600 text-base leading-relaxed font-mono">
+            <p className="text-slate-600 dark:text-white/70 text-base leading-relaxed font-mono">
               {product.description ||
                 "High-performance tactical hardware engineered for zero-latency execution, ergonomic endurance, and tournament combat."}
             </p>
@@ -137,7 +137,7 @@ const Product = () => {
               <span className="text-4xl md:text-5xl font-black text-cyber-green font-mono">
                 ${product.price.toFixed(2)}
               </span>
-              <span className="text-white/40 dark:text-white/40 light:text-slate-400 text-xs font-mono uppercase">
+              <span className="text-slate-400 dark:text-white/40 text-xs font-mono uppercase">
                 Stock: {product.quantity ? `${product.quantity} Units Ready` : "Available in Sector"}
               </span>
             </div>
@@ -146,11 +146,11 @@ const Product = () => {
             <div className="space-y-3 pt-4">
               <div className="flex items-center gap-4">
                 {/* Quantity Toggle */}
-                <div className="flex items-center bg-cyber-card dark:bg-cyber-card light:bg-slate-100 border border-cyber-border dark:border-cyber-border light:border-slate-300 rounded-xl p-1 text-white dark:text-white light:text-slate-900">
+                <div className="flex items-center bg-slate-100 dark:bg-cyber-card border border-slate-300 dark:border-cyber-border rounded-xl p-1 text-slate-900 dark:text-white">
                   <button
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
                     aria-label="Decrease quantity"
-                    className="w-10 h-10 flex items-center justify-center text-white/60 hover:text-cyber-green transition-colors"
+                    className="w-10 h-10 flex items-center justify-center text-slate-600 dark:text-white/60 hover:text-cyber-green transition-colors"
                   >
                     <FontAwesomeIcon icon={faMinus} size="sm" />
                   </button>
@@ -160,7 +160,7 @@ const Product = () => {
                   <button
                     onClick={() => setQuantity(quantity + 1)}
                     aria-label="Increase quantity"
-                    className="w-10 h-10 flex items-center justify-center text-white/60 hover:text-cyber-green transition-colors"
+                    className="w-10 h-10 flex items-center justify-center text-slate-600 dark:text-white/60 hover:text-cyber-green transition-colors"
                   >
                     <FontAwesomeIcon icon={faPlus} size="sm" />
                   </button>
@@ -185,31 +185,31 @@ const Product = () => {
             </div>
 
             {/* Tactical Trust Badges */}
-            <div className="grid grid-cols-3 gap-4 pt-6 border-t border-cyber-border/80">
-              <div className="text-center p-3 rounded-xl bg-cyber-card/40 border border-cyber-border/40">
+            <div className="grid grid-cols-3 gap-4 pt-6 border-t border-slate-200 dark:border-cyber-border/80">
+              <div className="text-center p-3 rounded-xl bg-slate-100 dark:bg-cyber-card/40 border border-slate-200 dark:border-cyber-border/40">
                 <FontAwesomeIcon
                   icon={faShieldAlt}
                   className="text-cyber-green text-lg mb-1"
                 />
-                <p className="text-[10px] text-white/70 dark:text-white/70 light:text-slate-600 uppercase font-mono font-bold">
+                <p className="text-[10px] text-slate-600 dark:text-white/70 uppercase font-mono font-bold">
                   2-Yr Warranty
                 </p>
               </div>
-              <div className="text-center p-3 rounded-xl bg-cyber-card/40 border border-cyber-border/40">
+              <div className="text-center p-3 rounded-xl bg-slate-100 dark:bg-cyber-card/40 border border-slate-200 dark:border-cyber-border/40">
                 <FontAwesomeIcon
                   icon={faTruckFast}
                   className="text-cyber-green text-lg mb-1"
                 />
-                <p className="text-[10px] text-white/70 dark:text-white/70 light:text-slate-600 uppercase font-mono font-bold">
+                <p className="text-[10px] text-slate-600 dark:text-white/70 uppercase font-mono font-bold">
                   Fast Dispatch
                 </p>
               </div>
-              <div className="text-center p-3 rounded-xl bg-cyber-card/40 border border-cyber-border/40">
+              <div className="text-center p-3 rounded-xl bg-slate-100 dark:bg-cyber-card/40 border border-slate-200 dark:border-cyber-border/40">
                 <FontAwesomeIcon
                   icon={faMicrochip}
                   className="text-cyber-green text-lg mb-1"
                 />
-                <p className="text-[10px] text-white/70 dark:text-white/70 light:text-slate-600 uppercase font-mono font-bold">
+                <p className="text-[10px] text-slate-600 dark:text-white/70 uppercase font-mono font-bold">
                   Pro Tuned
                 </p>
               </div>
@@ -219,12 +219,12 @@ const Product = () => {
 
         {/* Related Gear */}
         {relatedProducts.length > 0 && (
-          <div className="border-t border-cyber-border pt-16">
+          <div className="border-t border-slate-200 dark:border-cyber-border pt-16">
             <div className="mb-8">
               <span className="text-cyber-green text-xs font-mono uppercase tracking-[0.25em] block mb-1">
                 Synchronized Hardware
               </span>
-              <h2 className="text-2xl md:text-3xl font-black text-white dark:text-white light:text-slate-900 uppercase font-cyber tracking-tight">
+              <h2 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white uppercase font-cyber tracking-tight">
                 Related <span className="text-cyber-green">Units</span>
               </h2>
             </div>
@@ -234,9 +234,9 @@ const Product = () => {
                 <Link
                   key={p.id}
                   to={`/product/${p.id}`}
-                  className="group bg-cyber-card dark:bg-cyber-card light:bg-white border border-cyber-border dark:border-cyber-border light:border-slate-200 p-4 rounded-2xl transition-all hover:border-cyber-green/50 hover:shadow-cyber flex flex-col justify-between"
+                  className="group bg-white dark:bg-cyber-card border border-slate-200 dark:border-cyber-border p-4 rounded-2xl transition-all hover:border-cyber-green/50 hover:shadow-cyber flex flex-col justify-between"
                 >
-                  <div className="h-44 w-full bg-black/40 rounded-xl p-3 flex items-center justify-center mb-4">
+                  <div className="h-44 w-full bg-slate-100 dark:bg-black/40 rounded-xl p-3 flex items-center justify-center mb-4">
                     <img
                       src={getProductImage(p.img)}
                       alt={p.name}
@@ -251,7 +251,7 @@ const Product = () => {
                   </div>
 
                   <div>
-                    <h4 className="text-white dark:text-white light:text-slate-900 font-bold text-sm group-hover:text-cyber-green transition-colors truncate">
+                    <h4 className="text-slate-900 dark:text-white font-bold text-sm group-hover:text-cyber-green transition-colors truncate">
                       {p.name}
                     </h4>
 

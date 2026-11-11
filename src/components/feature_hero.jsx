@@ -13,10 +13,7 @@ export default function FeatureHero() {
 
       {/* Radial Overlay */}
       <div 
-        className="absolute inset-0 z-10"
-        style={{
-          background: "radial-gradient(circle at center, rgba(0, 0, 0, 0.4), #050505 85%)"
-        }}
+        className="absolute inset-0 z-10 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.7),#f8fafc_90%)] dark:bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.4),#050505_85%)]"
       ></div>
       
       {/* Content */}
@@ -26,10 +23,10 @@ export default function FeatureHero() {
         </span>
 
         <h2 className="text-3xl md:text-6xl font-black text-cyber-green uppercase tracking-tight mb-5 drop-shadow-[0_0_15px_rgba(0,255,156,0.35)] font-cyber">
-          Next-Gen <span className="text-white">Cyber Hardware</span>
+          Next-Gen <span className="text-slate-900 dark:text-white">Cyber Hardware</span>
         </h2>
         
-        <p className="text-base md:text-lg text-white/85 leading-relaxed mb-8 font-mono">
+        <p className="text-base md:text-lg text-slate-700 dark:text-white/85 leading-relaxed mb-8 font-mono">
           Precision-calibrated sensors, hot-swappable tactile switches, and high-impedance acoustic drivers for operatives who accept nothing less than dominance.
         </p>
 

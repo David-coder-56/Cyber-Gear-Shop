@@ -31,10 +31,10 @@ export default function MostPurchased() {
           <span className="text-cyber-green text-xs font-mono uppercase tracking-[0.25em] block mb-1">
             Elite Combat Proof
           </span>
-          <h2 className="text-3xl md:text-5xl font-black text-white dark:text-white light:text-slate-900 uppercase font-cyber tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white uppercase font-cyber tracking-tight">
             Most <span className="text-cyber-green">Purchased</span>
           </h2>
-          <p className="text-white/60 dark:text-white/60 light:text-slate-600 mt-2 text-sm font-mono">
+          <p className="text-slate-600 dark:text-white/60 mt-2 text-sm font-mono">
             Hardware battle-tested by top-tier streamers and esports pros.
           </p>
         </div>
@@ -44,14 +44,14 @@ export default function MostPurchased() {
           <button
             onClick={() => scroll("left")}
             aria-label="Scroll left"
-            className="w-10 h-10 rounded-lg bg-cyber-card border border-cyber-border text-white hover:text-cyber-green hover:border-cyber-green/50 flex items-center justify-center transition-all active:scale-95 shadow-sm"
+            className="w-10 h-10 rounded-lg bg-white dark:bg-cyber-card border border-slate-200 dark:border-cyber-border text-slate-800 dark:text-white hover:text-cyber-green hover:border-cyber-green/50 flex items-center justify-center transition-all active:scale-95 shadow-sm"
           >
             <FontAwesomeIcon icon={faChevronLeft} size="sm" />
           </button>
           <button
             onClick={() => scroll("right")}
             aria-label="Scroll right"
-            className="w-10 h-10 rounded-lg bg-cyber-card border border-cyber-border text-white hover:text-cyber-green hover:border-cyber-green/50 flex items-center justify-center transition-all active:scale-95 shadow-sm"
+            className="w-10 h-10 rounded-lg bg-white dark:bg-cyber-card border border-slate-200 dark:border-cyber-border text-slate-800 dark:text-white hover:text-cyber-green hover:border-cyber-green/50 flex items-center justify-center transition-all active:scale-95 shadow-sm"
           >
             <FontAwesomeIcon icon={faChevronRight} size="sm" />
           </button>
@@ -66,7 +66,7 @@ export default function MostPurchased() {
         {bestSellers.map((product, index) => (
           <div
             key={product.id}
-            className="group relative flex-shrink-0 w-[290px] snap-start bg-cyber-card dark:bg-cyber-card light:bg-white border border-cyber-border dark:border-cyber-border light:border-slate-200 rounded-2xl overflow-hidden transition-all duration-300 hover:border-cyber-green hover:-translate-y-2 hover:shadow-cyber flex flex-col justify-between"
+            className="group relative flex-shrink-0 w-[290px] snap-start bg-white dark:bg-cyber-card border border-slate-200 dark:border-cyber-border rounded-2xl overflow-hidden transition-all duration-300 hover:border-cyber-green hover:-translate-y-2 hover:shadow-cyber flex flex-col justify-between"
           >
             {/* Rank Badge */}
             <div className="absolute top-3 left-3 z-20 bg-cyber-green text-black font-black text-[11px] px-2.5 py-1 rounded uppercase tracking-wider flex items-center gap-1 font-mono shadow-md">
@@ -74,7 +74,7 @@ export default function MostPurchased() {
             </div>
 
             {/* Image Container */}
-            <div className="relative h-60 overflow-hidden bg-black/40 dark:bg-black/40 light:bg-slate-100 flex items-center justify-center p-4">
+            <div className="relative h-60 overflow-hidden bg-slate-100 dark:bg-black/40 flex items-center justify-center p-4">
               <img
                 src={getProductImage(product.img)}
                 alt={product.name}
@@ -92,7 +92,7 @@ export default function MostPurchased() {
             <div className="p-5 flex flex-col flex-1 justify-between">
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-[11px] text-white/50 dark:text-white/50 light:text-slate-500 font-mono">
+                  <span className="text-[11px] text-slate-500 dark:text-white/50 font-mono">
                     {product.stats?.sold || "1.2k+ deployed"}
                   </span>
                   <div className="text-yellow-400 text-xs flex items-center gap-1 font-mono font-bold">
@@ -103,16 +103,16 @@ export default function MostPurchased() {
 
                 <Link
                   to={`/product/${product.id}`}
-                  className="text-base font-bold text-white dark:text-white light:text-slate-900 group-hover:text-cyber-green transition-colors line-clamp-1 block mb-1"
+                  className="text-base font-bold text-slate-900 dark:text-white group-hover:text-cyber-green transition-colors line-clamp-1 block mb-1"
                 >
                   {product.name}
                 </Link>
-                <p className="text-xs text-white/40 dark:text-white/40 light:text-slate-400 line-clamp-1 font-mono">
+                <p className="text-xs text-slate-500 dark:text-white/40 line-clamp-1 font-mono">
                   {product.description}
                 </p>
               </div>
 
-              <div className="flex items-center justify-between mt-5 pt-3 border-t border-cyber-border">
+              <div className="flex items-center justify-between mt-5 pt-3 border-t border-slate-200 dark:border-cyber-border">
                 <span className="text-lg font-black text-cyber-green font-mono">
                   ${product.price.toFixed(2)}
                 </span>
@@ -128,7 +128,7 @@ export default function MostPurchased() {
 
                   <Link
                     to={`/product/${product.id}`}
-                    className="text-[11px] font-bold text-white dark:text-white light:text-slate-800 border border-white/20 dark:border-white/20 light:border-slate-300 px-3 py-1.5 rounded-lg group-hover:bg-cyber-green group-hover:text-black group-hover:border-cyber-green transition-all uppercase tracking-wider"
+                    className="text-[11px] font-bold text-slate-800 dark:text-white border border-slate-300 dark:border-white/20 px-3 py-1.5 rounded-lg group-hover:bg-cyber-green group-hover:text-black group-hover:border-cyber-green transition-all uppercase tracking-wider"
                   >
                     Specs
                   </Link>

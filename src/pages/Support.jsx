@@ -63,7 +63,7 @@ export default function Support() {
   };
 
   return (
-    <div className="bg-cyber-bg min-h-screen pt-24 pb-20 px-6 bg-cyber-grid">
+    <div className="bg-slate-50 dark:bg-cyber-bg min-h-screen pt-24 pb-20 px-6 bg-cyber-grid">
       <div className="max-w-5xl mx-auto">
         
         {/* Header Section */}
@@ -71,10 +71,10 @@ export default function Support() {
           <span className="text-cyber-green text-xs font-mono uppercase tracking-[0.3em] block mb-2 font-bold">
             Assistance Array // Direct Link
           </span>
-          <h1 className="text-4xl md:text-6xl font-black text-white uppercase font-cyber tracking-tight">
+          <h1 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white uppercase font-cyber tracking-tight">
             Support <span className="text-cyber-green">Hub</span>
           </h1>
-          <p className="text-white/60 mt-3 max-w-xl mx-auto font-mono text-xs md:text-sm">
+          <p className="text-slate-600 dark:text-white/60 mt-3 max-w-xl mx-auto font-mono text-xs md:text-sm">
             Technical diagnostics, logistics tracking, and hardware shield claims.
           </p>
         </div>
@@ -94,12 +94,12 @@ export default function Support() {
                 p-6 rounded-2xl text-center transition-all cursor-pointer border
                 ${filterCategory === item.id 
                   ? "bg-cyber-green/10 border-cyber-green shadow-cyber" 
-                  : "bg-cyber-card border-cyber-border hover:border-cyber-green/50 hover:-translate-y-1"}
+                  : "bg-white dark:bg-cyber-card border-slate-200 dark:border-cyber-border hover:border-cyber-green/50 hover:-translate-y-1 shadow-sm"}
               `}
             >
               <FontAwesomeIcon icon={item.icon} className="text-cyber-green text-2xl mb-3" />
-              <h3 className="text-white font-bold uppercase tracking-wider text-xs font-cyber">{item.label}</h3>
-              <p className="text-white/40 text-[11px] font-mono mt-1">{item.text}</p>
+              <h3 className="text-slate-900 dark:text-white font-bold uppercase tracking-wider text-xs font-cyber">{item.label}</h3>
+              <p className="text-slate-500 dark:text-white/40 text-[11px] font-mono mt-1">{item.text}</p>
             </button>
           ))}
         </div>
@@ -108,7 +108,7 @@ export default function Support() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           <div className="lg:col-span-2">
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-xl font-black text-white uppercase font-cyber flex items-center gap-2">
+              <h2 className="text-xl font-black text-slate-900 dark:text-white uppercase font-cyber flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-cyber-green animate-pulse"></span>
                 Knowledge Base {filterCategory !== "all" && `(${filterCategory.toUpperCase()})`}
               </h2>
@@ -124,20 +124,20 @@ export default function Support() {
             
             <div className="space-y-3">
               {filteredFaqs.map((faq, index) => (
-                <div key={index} className="border border-cyber-border rounded-xl overflow-hidden bg-cyber-card">
+                <div key={index} className="border border-slate-200 dark:border-cyber-border rounded-xl overflow-hidden bg-white dark:bg-cyber-card shadow-sm">
                   <button 
                     onClick={() => setActiveIndex(activeIndex === index ? null : index)}
-                    className="w-full p-5 flex justify-between items-center text-left hover:bg-white/5 transition-colors"
+                    className="w-full p-5 flex justify-between items-center text-left hover:bg-slate-50 dark:hover:bg-white/5 transition-colors"
                   >
-                    <span className="text-white font-bold text-sm pr-4 font-mono">{faq.q}</span>
+                    <span className="text-slate-900 dark:text-white font-bold text-sm pr-4 font-mono">{faq.q}</span>
                     <FontAwesomeIcon 
                       icon={faChevronDown} 
                       className={`text-cyber-green transition-transform duration-300 ${activeIndex === index ? 'rotate-180' : ''}`} 
                     />
                   </button>
                   {activeIndex === index && (
-                    <div className="p-5 pt-0 border-t border-cyber-border/40 animate-fade-in-up">
-                      <p className="text-white/70 text-xs font-mono leading-relaxed mt-3">
+                    <div className="p-5 pt-0 border-t border-slate-200 dark:border-cyber-border/40 animate-fade-in-up">
+                      <p className="text-slate-600 dark:text-white/70 text-xs font-mono leading-relaxed mt-3">
                         {faq.a}
                       </p>
                     </div>
@@ -169,10 +169,10 @@ export default function Support() {
               </div>
             </div>
 
-            <div className="border border-cyber-border p-6 rounded-2xl bg-cyber-card/60">
-              <h4 className="text-white font-bold text-xs uppercase font-cyber tracking-wider mb-2">Comms Windows</h4>
-              <p className="text-white/60 text-xs font-mono">MON - FRI: 08:00 - 20:00 UTC</p>
-              <p className="text-white/60 text-xs font-mono">SAT - SUN: 10:00 - 16:00 UTC</p>
+            <div className="border border-slate-200 dark:border-cyber-border p-6 rounded-2xl bg-white dark:bg-cyber-card/60 shadow-sm">
+              <h4 className="text-slate-900 dark:text-white font-bold text-xs uppercase font-cyber tracking-wider mb-2">Comms Windows</h4>
+              <p className="text-slate-600 dark:text-white/60 text-xs font-mono">MON - FRI: 08:00 - 20:00 UTC</p>
+              <p className="text-slate-600 dark:text-white/60 text-xs font-mono">SAT - SUN: 10:00 - 16:00 UTC</p>
             </div>
           </div>
         </div>
@@ -181,13 +181,13 @@ export default function Support() {
 
       {/* Interactive Live Chat Modal */}
       {chatOpen && (
-        <div className="fixed bottom-6 right-6 z-[3000] w-full max-w-sm bg-black/95 border border-cyber-green rounded-2xl shadow-cyber overflow-hidden animate-fade-in-up">
-          <div className="p-4 bg-cyber-card border-b border-cyber-border flex justify-between items-center">
+        <div className="fixed bottom-6 right-6 z-[3000] w-full max-w-sm bg-white/95 dark:bg-black/95 border border-cyber-green rounded-2xl shadow-2xl dark:shadow-cyber overflow-hidden animate-fade-in-up">
+          <div className="p-4 bg-slate-100 dark:bg-cyber-card border-b border-slate-200 dark:border-cyber-border flex justify-between items-center">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-cyber-green animate-ping"></span>
-              <span className="font-cyber text-xs uppercase text-white font-bold">Droid-7 Support Link</span>
+              <span className="font-cyber text-xs uppercase text-slate-900 dark:text-white font-bold">Droid-7 Support Link</span>
             </div>
-            <button onClick={() => setChatOpen(false)} className="text-white/50 hover:text-white">
+            <button onClick={() => setChatOpen(false)} className="text-slate-500 hover:text-slate-900 dark:text-white/50 dark:hover:text-white">
               <FontAwesomeIcon icon={faTimes} />
             </button>
           </div>
@@ -195,20 +195,20 @@ export default function Support() {
           <div className="h-64 p-4 overflow-y-auto space-y-3 no-scrollbar text-xs font-mono">
             {chatMessages.map((msg, i) => (
               <div key={i} className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}>
-                <div className={`max-w-[80%] p-3 rounded-xl ${msg.sender === "user" ? "bg-cyber-green text-black font-bold" : "bg-white/10 text-white"}`}>
+                <div className={`max-w-[80%] p-3 rounded-xl ${msg.sender === "user" ? "bg-cyber-green text-black font-bold" : "bg-slate-100 dark:bg-white/10 text-slate-900 dark:text-white"}`}>
                   {msg.text}
                 </div>
               </div>
             ))}
           </div>
 
-          <form onSubmit={handleSendMessage} className="p-3 border-t border-cyber-border flex gap-2">
+          <form onSubmit={handleSendMessage} className="p-3 border-t border-slate-200 dark:border-cyber-border flex gap-2">
             <input
               type="text"
               placeholder="Type message..."
               value={chatInput}
               onChange={(e) => setChatInput(e.target.value)}
-              className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-xs font-mono text-white outline-none focus:border-cyber-green"
+              className="flex-1 bg-slate-50 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-lg px-3 py-2 text-xs font-mono text-slate-900 dark:text-white outline-none focus:border-cyber-green"
             />
             <button type="submit" className="bg-cyber-green text-black px-4 py-2 rounded-lg font-bold text-xs">
               <FontAwesomeIcon icon={faPaperPlane} />

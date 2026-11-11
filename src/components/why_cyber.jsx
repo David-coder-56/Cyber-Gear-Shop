@@ -31,16 +31,16 @@ export default function WhyCyber() {
   ];
 
   return (
-    <section className="py-24 px-6 max-w-7xl mx-auto dark:bg-cyber-bg transition-colors duration-300">
+    <section className="py-24 px-6 max-w-7xl mx-auto transition-colors duration-300">
       <div className="grid lg:grid-cols-2 gap-16 items-center">
         
         {/* Left Column: Why Text */}
         <div className="space-y-6">
-          <h2 className="text-4xl md:text-5xl font-black text-cyber-green uppercase tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-black text-cyber-green uppercase tracking-tight font-cyber">
             Why Choose Cyber Gear?
           </h2>
           
-          <div className="space-y-4 text-lg leading-relaxed dark:text-cyber-text text-light-text opacity-90">
+          <div className="space-y-4 text-lg leading-relaxed text-slate-700 dark:text-white/80 font-mono text-sm">
             <p>
               Cyber Gear isn’t just about selling peripherals — it’s about
               delivering precision, performance, and reliability for those who
@@ -51,7 +51,7 @@ export default function WhyCyber() {
               latency response, and a design language inspired by modern gaming
               and professional workspaces.
             </p>
-            <p className="font-semibold text-cyber-greenSoft">
+            <p className="font-semibold text-cyber-green">
               Whether you're a competitive gamer, developer, streamer, or creator
               — Cyber Gear equips you to perform at your peak.
             </p>
@@ -64,16 +64,15 @@ export default function WhyCyber() {
             <div 
               key={point.title} 
               className="group p-8 rounded-2xl border transition-all duration-300
-                         dark:bg-cyber-card dark:border-cyber-border dark:hover:border-cyber-green/50
-                         bg-light-card border-light-border hover:shadow-cyberSoft"
+                         bg-white dark:bg-cyber-card border-slate-200 dark:border-cyber-border hover:border-cyber-green/50 dark:hover:border-cyber-green/50 shadow-sm hover:shadow-cyberSoft"
             >
               <div className="text-cyber-green text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">
                 <FontAwesomeIcon icon={point.icon} />
               </div>
-              <h3 className="dark:text-white text-light-text font-bold text-xl mb-2 uppercase tracking-tight">
+              <h3 className="text-slate-900 dark:text-white font-bold text-xl mb-2 uppercase tracking-tight font-cyber">
                 {point.title}
               </h3>
-              <p className="dark:text-white/60 text-light-text/70 text-sm leading-relaxed">
+              <p className="text-slate-600 dark:text-white/60 text-sm leading-relaxed font-mono">
                 {point.desc}
               </p>
             </div>

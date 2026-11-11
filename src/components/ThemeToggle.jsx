@@ -9,28 +9,27 @@ const ThemeToggle = () => {
     <button
       onClick={toggleTheme}
       className={`
-        relative flex items-center gap-3 px-4 py-2 rounded-lg 
-        text-xs font-black uppercase tracking-widest
-        transition-all duration-500 overflow-hidden
-        border border-cyber-border
+        relative flex items-center gap-2.5 px-3.5 py-1.5 rounded-lg 
+        text-xs font-black uppercase tracking-wider
+        transition-all duration-300 overflow-hidden
         ${theme === "dark" 
-          ? "bg-black text-cyber-green hover:shadow-cyber hover:border-cyber-green" 
-          : "bg-white text-gray-800 border-gray-200 hover:shadow-lg"
+          ? "bg-black text-cyber-green border border-cyber-border hover:shadow-cyber hover:border-cyber-green" 
+          : "bg-slate-100 text-slate-800 border border-slate-300 hover:border-slate-400 hover:shadow-md"
         }
       `}
     >
       {/* Small status indicator dot */}
-      <span className={`h-2 w-2 rounded-full animate-pulse ${theme === "dark" ? 'bg-cyber-green' : 'bg-orange-400'}`}></span>
+      <span className={`h-2 w-2 rounded-full animate-pulse ${theme === "dark" ? 'bg-cyber-green' : 'bg-amber-500'}`}></span>
       
-      <span className="relative z-10">
+      <span className="relative z-10 font-mono text-[11px]">
         {theme === "dark" ? (
           <>
-            <FontAwesomeIcon icon={faSun} className="mr-2" />
+            <FontAwesomeIcon icon={faSun} className="mr-1.5 text-cyber-green" />
             Deactivate Stealth
           </>
         ) : (
           <>
-            <FontAwesomeIcon icon={faMoon} className="mr-2" />
+            <FontAwesomeIcon icon={faMoon} className="mr-1.5 text-amber-500" />
             Engage Neon
           </>
         )}

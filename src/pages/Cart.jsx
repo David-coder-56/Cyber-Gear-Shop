@@ -47,15 +47,15 @@ export default function Cart() {
 
   if (cart.length === 0 && checkoutStep !== "success") {
     return (
-      <div className="min-h-screen bg-cyber-bg pt-28 pb-16 px-6 bg-cyber-grid">
-        <div className="max-w-2xl mx-auto text-center py-20 bg-cyber-card border border-cyber-border rounded-3xl p-8 shadow-cyber">
+      <div className="min-h-screen bg-slate-50 dark:bg-cyber-bg pt-28 pb-16 px-6 bg-cyber-grid">
+        <div className="max-w-2xl mx-auto text-center py-20 bg-white dark:bg-cyber-card border border-slate-200 dark:border-cyber-border rounded-3xl p-8 shadow-xl dark:shadow-cyber">
           <div className="w-20 h-20 mx-auto rounded-full border border-cyber-green/30 flex items-center justify-center text-cyber-green text-3xl mb-6">
             <FontAwesomeIcon icon={faShield} />
           </div>
-          <h1 className="text-3xl font-black text-white uppercase font-cyber mb-3">
+          <h1 className="text-3xl font-black text-slate-900 dark:text-white uppercase font-cyber mb-3">
             Armory Loadout is Empty
           </h1>
-          <p className="text-white/50 text-sm font-mono max-w-md mx-auto mb-8">
+          <p className="text-slate-500 dark:text-white/50 text-sm font-mono max-w-md mx-auto mb-8">
             No active combat peripherals or tactical gear equipped in your session.
           </p>
           <Link
@@ -73,23 +73,23 @@ export default function Cart() {
   }
 
   return (
-    <div className="min-h-screen bg-cyber-bg pt-24 pb-20 px-6 bg-cyber-grid">
+    <div className="min-h-screen bg-slate-50 dark:bg-cyber-bg pt-24 pb-20 px-6 bg-cyber-grid">
       <div className="max-w-6xl mx-auto">
         
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 pb-6 border-b border-cyber-border">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 pb-6 border-b border-slate-200 dark:border-cyber-border">
           <div>
             <span className="text-cyber-green text-xs font-mono uppercase tracking-[0.25em] block mb-1">
               Active Procurement System
             </span>
-            <h1 className="text-3xl md:text-5xl font-black text-white uppercase font-cyber tracking-tight">
+            <h1 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white uppercase font-cyber tracking-tight">
               Operational <span className="text-cyber-green">Loadout</span>
             </h1>
           </div>
           
           <button
             onClick={clearCart}
-            className="text-xs font-mono text-white/40 hover:text-red-400 uppercase tracking-wider flex items-center gap-1.5 transition-colors"
+            className="text-xs font-mono text-slate-400 dark:text-white/40 hover:text-red-500 uppercase tracking-wider flex items-center gap-1.5 transition-colors"
           >
             <FontAwesomeIcon icon={faRotateLeft} size="xs" /> Purge Loadout
           </button>
@@ -97,17 +97,17 @@ export default function Cart() {
 
         {/* Checkout Modal / Success State */}
         {checkoutStep === "success" ? (
-          <div className="max-w-xl mx-auto bg-cyber-card border border-cyber-green p-10 rounded-3xl text-center shadow-cyber mb-16 animate-fade-in-up">
+          <div className="max-w-xl mx-auto bg-white dark:bg-cyber-card border border-cyber-green p-10 rounded-3xl text-center shadow-xl dark:shadow-cyber mb-16 animate-fade-in-up">
             <div className="w-20 h-20 mx-auto rounded-full bg-cyber-green/10 text-cyber-green border border-cyber-green flex items-center justify-center text-4xl mb-6">
               <FontAwesomeIcon icon={faCheckCircle} />
             </div>
             <span className="text-cyber-green text-xs font-mono uppercase tracking-[0.3em] block mb-2">
               Order Dispatched
             </span>
-            <h2 className="text-3xl font-black text-white uppercase font-cyber mb-4">
+            <h2 className="text-3xl font-black text-slate-900 dark:text-white uppercase font-cyber mb-4">
               Tactical Acquisition Confirmed
             </h2>
-            <p className="text-white/60 text-sm font-mono leading-relaxed mb-8">
+            <p className="text-slate-600 dark:text-white/60 text-sm font-mono leading-relaxed mb-8">
               Transmission authorized. Your encrypted tracking telemetry has been generated and dispatched to your communication link.
             </p>
             <Link
@@ -126,11 +126,11 @@ export default function Cart() {
               {cart.map((item) => (
                 <div
                   key={item.id}
-                  className="bg-cyber-card border border-cyber-border p-5 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center gap-5 hover:border-cyber-green/40 transition-colors"
+                  className="bg-white dark:bg-cyber-card border border-slate-200 dark:border-cyber-border p-5 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center gap-5 hover:border-cyber-green/40 shadow-sm transition-colors"
                 >
                   <Link
                     to={`/product/${item.id}`}
-                    className="w-24 h-24 bg-black/60 rounded-xl p-2 flex items-center justify-center shrink-0 border border-white/5"
+                    className="w-24 h-24 bg-slate-100 dark:bg-black/60 rounded-xl p-2 flex items-center justify-center shrink-0 border border-slate-200 dark:border-white/5"
                   >
                     <img
                       src={getProductImage(item.img)}
@@ -151,7 +151,7 @@ export default function Cart() {
                     </span>
                     <Link
                       to={`/product/${item.id}`}
-                      className="text-base font-bold text-white hover:text-cyber-green transition-colors truncate block"
+                      className="text-base font-bold text-slate-900 dark:text-white hover:text-cyber-green transition-colors truncate block"
                     >
                       {item.name}
                     </Link>
@@ -162,20 +162,20 @@ export default function Cart() {
 
                   {/* Quantity and Controls */}
                   <div className="flex items-center gap-4 w-full sm:w-auto justify-between sm:justify-end">
-                    <div className="flex items-center bg-black/60 px-2 py-1 rounded-xl border border-white/10">
+                    <div className="flex items-center bg-slate-100 dark:bg-black/60 px-2 py-1 rounded-xl border border-slate-300 dark:border-white/10">
                       <button
                         onClick={() => updateQuantity(item.id, -1)}
-                        className="text-white/60 hover:text-cyber-green px-2 py-1 text-xs"
+                        className="text-slate-600 dark:text-white/60 hover:text-cyber-green px-2 py-1 text-xs"
                         aria-label="Decrease quantity"
                       >
                         <FontAwesomeIcon icon={faMinus} size="xs" />
                       </button>
-                      <span className="text-white font-mono font-bold text-sm w-7 text-center">
+                      <span className="text-slate-900 dark:text-white font-mono font-bold text-sm w-7 text-center">
                         {item.quantity}
                       </span>
                       <button
                         onClick={() => updateQuantity(item.id, 1)}
-                        className="text-white/60 hover:text-cyber-green px-2 py-1 text-xs"
+                        className="text-slate-600 dark:text-white/60 hover:text-cyber-green px-2 py-1 text-xs"
                         aria-label="Increase quantity"
                       >
                         <FontAwesomeIcon icon={faPlus} size="xs" />
@@ -185,7 +185,7 @@ export default function Cart() {
                     <button
                       onClick={() => removeFromCart(item.id)}
                       aria-label="Remove item"
-                      className="text-white/30 hover:text-red-400 p-2 transition-colors"
+                      className="text-slate-400 dark:text-white/30 hover:text-red-500 p-2 transition-colors"
                     >
                       <FontAwesomeIcon icon={faTrash} />
                     </button>
@@ -198,7 +198,7 @@ export default function Cart() {
             <div className="space-y-6">
               
               {/* Promo Code Box */}
-              <div className="bg-cyber-card border border-cyber-border p-6 rounded-2xl">
+              <div className="bg-white dark:bg-cyber-card border border-slate-200 dark:border-cyber-border p-6 rounded-2xl shadow-sm">
                 <div className="flex items-center gap-2 text-cyber-green mb-3">
                   <FontAwesomeIcon icon={faTag} className="text-xs" />
                   <h4 className="font-bold text-xs uppercase font-cyber tracking-wider">Discount Override</h4>
@@ -209,7 +209,7 @@ export default function Cart() {
                     placeholder="Auth code (e.g. CYBER20)"
                     value={promoCode}
                     onChange={(e) => setPromoCode(e.target.value)}
-                    className="flex-1 bg-black/60 border border-cyber-border rounded-xl px-3 py-2 text-xs font-mono text-white outline-none focus:border-cyber-green uppercase"
+                    className="flex-1 bg-slate-50 dark:bg-black/60 border border-slate-300 dark:border-cyber-border rounded-xl px-3 py-2 text-xs font-mono text-slate-900 dark:text-white outline-none focus:border-cyber-green uppercase"
                   />
                   <button
                     type="submit"
@@ -226,13 +226,13 @@ export default function Cart() {
               </div>
 
               {/* Order Calculation */}
-              <div className="bg-cyber-card border border-cyber-green/40 p-6 md:p-8 rounded-2xl shadow-cyber sticky top-24 space-y-6">
-                <h3 className="text-lg font-black text-white uppercase font-cyber tracking-wider">
+              <div className="bg-white dark:bg-cyber-card border border-cyber-green/40 p-6 md:p-8 rounded-2xl shadow-xl dark:shadow-cyber sticky top-24 space-y-6">
+                <h3 className="text-lg font-black text-slate-900 dark:text-white uppercase font-cyber tracking-wider">
                   Order Summary
                 </h3>
 
-                <div className="space-y-3 font-mono text-xs border-b border-cyber-border pb-6">
-                  <div className="flex justify-between text-white/70">
+                <div className="space-y-3 font-mono text-xs border-b border-slate-200 dark:border-cyber-border pb-6">
+                  <div className="flex justify-between text-slate-600 dark:text-white/70">
                     <span>Hardware Subtotal</span>
                     <span>${cartTotal.toFixed(2)}</span>
                   </div>
@@ -244,14 +244,14 @@ export default function Cart() {
                     </div>
                   )}
 
-                  <div className="flex justify-between text-white/70">
+                  <div className="flex justify-between text-slate-600 dark:text-white/70">
                     <span>Encrypted Deployment</span>
                     <span className="text-cyber-green font-bold uppercase tracking-wider">FREE (VIP)</span>
                   </div>
                 </div>
 
                 <div className="flex justify-between items-baseline font-mono">
-                  <span className="text-white font-black uppercase font-cyber text-sm tracking-wider">Total Credits</span>
+                  <span className="text-slate-900 dark:text-white font-black uppercase font-cyber text-sm tracking-wider">Total Credits</span>
                   <span className="text-3xl font-black text-cyber-green">
                     ${finalTotal.toFixed(2)}
                   </span>
@@ -275,7 +275,7 @@ export default function Cart() {
                   )}
                 </button>
 
-                <div className="flex items-center justify-center gap-2 text-[10px] text-white/40 font-mono uppercase tracking-wider">
+                <div className="flex items-center justify-center gap-2 text-[10px] text-slate-400 dark:text-white/40 font-mono uppercase tracking-wider">
                   <FontAwesomeIcon icon={faShield} className="text-cyber-green" />
                   Quantum SHA-512 Encrypted Transaction
                 </div>

@@ -14,10 +14,10 @@ export default function SearchBar({ query, setQuery, placeholder = "Search armor
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         className="
-          w-full bg-cyber-card dark:bg-cyber-card light:bg-white
-          border border-cyber-border dark:border-cyber-border light:border-slate-300
-          text-white dark:text-white light:text-slate-900
-          placeholder:text-white/40 dark:placeholder:text-white/40 light:placeholder:text-slate-400
+          w-full bg-white dark:bg-cyber-card
+          border border-slate-300 dark:border-cyber-border
+          text-slate-900 dark:text-white
+          placeholder:text-slate-400 dark:placeholder:text-white/40
           rounded-xl py-2.5 pl-11 pr-10 text-sm font-medium
           focus:border-cyber-green focus:ring-1 focus:ring-cyber-green outline-none
           transition-all duration-300 shadow-sm
@@ -27,7 +27,7 @@ export default function SearchBar({ query, setQuery, placeholder = "Search armor
         <button
           onClick={() => setQuery("")}
           aria-label="Clear search"
-          className="absolute right-3 top-1/2 -translate-y-1/2 text-white/40 hover:text-white text-xs p-1"
+          className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-900 dark:text-white/40 dark:hover:text-white text-xs p-1"
         >
           <FontAwesomeIcon icon={faTimes} />
         </button>

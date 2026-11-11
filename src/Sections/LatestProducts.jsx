@@ -15,7 +15,7 @@ export default function LatestProducts() {
           <span className="text-cyber-green text-xs font-mono uppercase tracking-[0.25em] block mb-1">
             New Factory Drops
           </span>
-          <h2 className="text-3xl md:text-5xl font-black text-white dark:text-white light:text-slate-900 uppercase font-cyber tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white uppercase font-cyber tracking-tight">
             Latest <span className="text-cyber-green">Arrivals</span>
           </h2>
         </div>

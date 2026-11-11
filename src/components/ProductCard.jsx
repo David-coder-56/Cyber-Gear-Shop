@@ -17,9 +17,9 @@ const ProductCard = ({ product }) => {
     <div
       className="
         relative group
-        bg-cyber-card dark:bg-cyber-card light:bg-white
-        text-white dark:text-white light:text-slate-900
-        border border-cyber-border dark:border-cyber-border light:border-slate-200
+        bg-white dark:bg-cyber-card
+        text-slate-900 dark:text-white
+        border border-slate-200 dark:border-cyber-border
         rounded-2xl p-5 
         hover:shadow-cyber 
         hover:border-cyber-green/60
@@ -32,7 +32,7 @@ const ProductCard = ({ product }) => {
       <span className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-cyber-green/30 group-hover:border-cyber-green transition-colors rounded-br" />
 
       {/* Product Image Container */}
-      <div className="relative overflow-hidden rounded-xl bg-black/40 dark:bg-black/50 light:bg-slate-100 mb-4 aspect-square flex items-center justify-center p-4">
+      <div className="relative overflow-hidden rounded-xl bg-slate-100 dark:bg-black/50 mb-4 aspect-square flex items-center justify-center p-4">
         <img
           src={getProductImage(product.img)}
           alt={product.name}
@@ -77,14 +77,14 @@ const ProductCard = ({ product }) => {
         </h3>
         
         {product.description && (
-          <p className="text-xs text-white/50 dark:text-white/50 light:text-slate-500 line-clamp-1 mt-1 font-mono">
+          <p className="text-xs text-slate-500 dark:text-white/50 line-clamp-1 mt-1 font-mono">
             {product.description}
           </p>
         )}
         
-        <div className="flex items-center justify-between mt-4 pt-3 border-t border-cyber-border/60">
+        <div className="flex items-center justify-between mt-4 pt-3 border-t border-slate-200 dark:border-cyber-border/60">
           <div>
-            <span className="text-[10px] text-white/40 dark:text-white/40 light:text-slate-400 font-mono block">Credits</span>
+            <span className="text-[10px] text-slate-400 dark:text-white/40 font-mono block">Credits</span>
             <p className="text-cyber-green font-mono font-black text-lg">
               ${Number(product.price).toFixed(2)}
             </p>
@@ -96,9 +96,10 @@ const ProductCard = ({ product }) => {
             className="
               flex items-center gap-1.5
               px-3.5 py-1.5 
-              bg-white/5 dark:bg-white/5 light:bg-slate-100
-              border border-white/10 dark:border-white/10 light:border-slate-300
+              bg-slate-100 dark:bg-white/5
+              border border-slate-300 dark:border-white/10
               rounded-lg text-[11px] font-bold uppercase tracking-wider
+              text-slate-800 dark:text-white
               hover:bg-cyber-green hover:text-black hover:border-cyber-green
               transition-all duration-300
             "

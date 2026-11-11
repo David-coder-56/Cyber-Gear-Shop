@@ -10,7 +10,7 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="bg-black dark:bg-black light:bg-slate-900 pt-16 pb-8 px-6 border-t border-cyber-border transition-colors">
+    <footer className="bg-slate-900 text-slate-100 dark:bg-black dark:text-white pt-16 pb-8 px-6 border-t border-slate-800 dark:border-cyber-border transition-colors">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         
         {/* Brand Section */}
@@ -18,7 +18,7 @@ export default function Footer() {
           <h2 className="text-cyber-green text-2xl font-black tracking-widest uppercase font-cyber">
             CYBER GEAR
           </h2>
-          <p className="text-white/70 dark:text-white/70 light:text-slate-300 leading-relaxed text-xs font-mono">
+          <p className="text-slate-300 dark:text-white/70 leading-relaxed text-xs font-mono">
             High-performance cyber & gaming gear engineered for gamers, creators, and professionals demanding zero-latency domination.
           </p>
           <div className="flex items-center gap-2 text-xs font-mono text-cyber-green">
@@ -43,7 +43,7 @@ export default function Footer() {
               <li key={item.name}>
                 <Link
                   to={item.to}
-                  className="text-white/70 dark:text-white/70 light:text-slate-300 hover:text-cyber-green transition-colors"
+                  className="text-slate-300 dark:text-white/70 hover:text-cyber-green transition-colors"
                 >
                   {item.name}
                 </Link>
@@ -67,7 +67,7 @@ export default function Footer() {
               <li key={item.name}>
                 <Link
                   to={item.to}
-                  className="text-white/70 dark:text-white/70 light:text-slate-300 hover:text-cyber-green transition-colors"
+                  className="text-slate-300 dark:text-white/70 hover:text-cyber-green transition-colors"
                 >
                   {item.name}
                 </Link>
@@ -81,7 +81,7 @@ export default function Footer() {
           <h3 className="text-cyber-green font-bold uppercase tracking-wider mb-5 text-sm font-cyber">
             Network Links
           </h3>
-          <p className="text-xs text-white/50 mb-4 font-mono">Connect with the official neural community:</p>
+          <p className="text-xs text-slate-400 dark:text-white/50 mb-4 font-mono">Connect with the official neural community:</p>
           <div className="flex gap-4">
             {[
               { icon: faGithub, label: "GitHub", href: "https://github.com" },
@@ -96,7 +96,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={soc.label}
-                className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/80 hover:text-cyber-green hover:border-cyber-green/50 hover:-translate-y-1 transition-all duration-300"
+                className="w-9 h-9 rounded-lg bg-white/10 dark:bg-white/5 border border-white/10 flex items-center justify-center text-white/80 hover:text-cyber-green hover:border-cyber-green/50 hover:-translate-y-1 transition-all duration-300"
               >
                 <FontAwesomeIcon icon={soc.icon} />
               </a>
@@ -106,8 +106,8 @@ export default function Footer() {
       </div>
 
       {/* Copyright Bottom */}
-      <div className="mt-14 pt-6 border-t border-white/10 text-center font-mono">
-        <p className="text-white/40 text-[11px] uppercase tracking-widest">
+      <div className="mt-14 pt-6 border-t border-slate-800 dark:border-white/10 text-center font-mono">
+        <p className="text-slate-400 dark:text-white/40 text-[11px] uppercase tracking-widest">
           © {new Date().getFullYear()} Cyber Gear Shop. All tactical rights reserved.
           <span className="mx-2">|</span>
           Engineered by{" "}

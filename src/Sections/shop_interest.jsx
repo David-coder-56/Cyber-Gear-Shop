@@ -58,7 +58,7 @@ export default function ShopByInterest() {
             Tactical Specialization
           </span>
           <h2 className="text-3xl md:text-5xl font-black text-cyber-green uppercase font-cyber tracking-tight">
-            Shop by <span className="text-white dark:text-white light:text-slate-900">Mission Interest</span>
+            Shop by <span className="text-slate-900 dark:text-white">Mission Interest</span>
           </h2>
         </div>
 
@@ -67,14 +67,14 @@ export default function ShopByInterest() {
           <button
             onClick={() => scroll("left")}
             aria-label="Scroll left"
-            className="w-10 h-10 rounded-lg bg-cyber-card border border-cyber-border text-white hover:text-cyber-green hover:border-cyber-green/50 flex items-center justify-center transition-all active:scale-95 shadow-sm"
+            className="w-10 h-10 rounded-lg bg-white dark:bg-cyber-card border border-slate-200 dark:border-cyber-border text-slate-800 dark:text-white hover:text-cyber-green hover:border-cyber-green/50 flex items-center justify-center transition-all active:scale-95 shadow-sm"
           >
             <FontAwesomeIcon icon={faChevronLeft} size="sm" />
           </button>
           <button
             onClick={() => scroll("right")}
             aria-label="Scroll right"
-            className="w-10 h-10 rounded-lg bg-cyber-card border border-cyber-border text-white hover:text-cyber-green hover:border-cyber-green/50 flex items-center justify-center transition-all active:scale-95 shadow-sm"
+            className="w-10 h-10 rounded-lg bg-white dark:bg-cyber-card border border-slate-200 dark:border-cyber-border text-slate-800 dark:text-white hover:text-cyber-green hover:border-cyber-green/50 flex items-center justify-center transition-all active:scale-95 shadow-sm"
           >
             <FontAwesomeIcon icon={faChevronRight} size="sm" />
           </button>
@@ -90,7 +90,7 @@ export default function ShopByInterest() {
           <Link
             key={item.slug}
             to={`/shop?interest=${item.slug}`}
-            className="group relative min-w-[320px] h-[250px] rounded-2xl overflow-hidden flex-shrink-0 snap-start transition-all duration-300 hover:-translate-y-2 hover:shadow-cyber border border-cyber-border hover:border-cyber-green/50"
+            className="group relative min-w-[320px] h-[250px] rounded-2xl overflow-hidden flex-shrink-0 snap-start transition-all duration-300 hover:-translate-y-2 hover:shadow-cyber border border-slate-200 dark:border-cyber-border hover:border-cyber-green/50"
           >
             {/* Background Image */}
             <div 

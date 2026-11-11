@@ -98,16 +98,16 @@ const Shop = () => {
   };
 
   return (
-    <div className="bg-cyber-bg min-h-screen pt-24 pb-20 bg-cyber-grid"> 
+    <div className="bg-slate-50 dark:bg-cyber-bg min-h-screen pt-24 pb-20 bg-cyber-grid"> 
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Armory Header */}
-        <div className="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-cyber-border">
+        <div className="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-slate-200 dark:border-cyber-border">
           <div>
             <span className="text-cyber-green text-xs font-mono uppercase tracking-[0.25em] block mb-1">
               Armory Inventory // {interestParam ? `Sector: ${interestParam.toUpperCase()}` : "Global Database"}
             </span>
-            <h1 className="text-3xl md:text-5xl font-black text-white dark:text-white light:text-slate-900 uppercase font-cyber tracking-tight">
+            <h1 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white uppercase font-cyber tracking-tight">
               Hardware <span className="text-cyber-green">Catalog</span>
             </h1>
           </div>
@@ -116,7 +116,7 @@ const Shop = () => {
             <SearchBar query={query} setQuery={setQuery} />
             <button
               onClick={() => setMobileFiltersOpen(!mobileFiltersOpen)}
-              className="md:hidden py-2.5 px-4 bg-cyber-card border border-cyber-border text-cyber-green rounded-xl font-bold text-xs uppercase flex items-center gap-2 whitespace-nowrap"
+              className="md:hidden py-2.5 px-4 bg-white dark:bg-cyber-card border border-slate-200 dark:border-cyber-border text-cyber-green rounded-xl font-bold text-xs uppercase flex items-center gap-2 whitespace-nowrap"
             >
               <FontAwesomeIcon icon={faSliders} />
               Filters
@@ -160,11 +160,11 @@ const Shop = () => {
           <main className="md:col-span-3 space-y-6">
             
             {/* Sorting & Filter State Bar */}
-            <div className="flex flex-wrap items-center justify-between gap-4 bg-cyber-card/60 dark:bg-cyber-card/60 light:bg-white p-4 rounded-xl border border-cyber-border">
+            <div className="flex flex-wrap items-center justify-between gap-4 bg-white dark:bg-cyber-card/60 p-4 rounded-xl border border-slate-200 dark:border-cyber-border shadow-sm">
               <div className="flex items-center gap-2 text-xs font-mono">
-                <span className="text-white/60 dark:text-white/60 light:text-slate-500">Showing:</span>
+                <span className="text-slate-500 dark:text-white/60">Showing:</span>
                 <span className="text-cyber-green font-bold">{sortedProducts.length}</span>
-                <span className="text-white/60 dark:text-white/60 light:text-slate-500">Units Available</span>
+                <span className="text-slate-500 dark:text-white/60">Units Available</span>
                 {category !== "All" && (
                   <span className="ml-2 px-2 py-0.5 rounded bg-cyber-green/10 text-cyber-green border border-cyber-green/30 text-[10px] uppercase font-bold">
                     {category}
@@ -177,7 +177,7 @@ const Shop = () => {
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="bg-black dark:bg-black light:bg-slate-100 text-white dark:text-white light:text-slate-900 border border-cyber-border rounded-lg text-xs font-mono py-1.5 px-3 outline-none focus:border-cyber-green"
+                  className="bg-slate-100 dark:bg-black text-slate-900 dark:text-white border border-slate-300 dark:border-cyber-border rounded-lg text-xs font-mono py-1.5 px-3 outline-none focus:border-cyber-green"
                 >
                   <option value="default">Default Priority</option>
                   <option value="price-asc">Price: Low to High</option>
@@ -196,12 +196,12 @@ const Shop = () => {
                 ))}
               </div>
             ) : (
-              <div className="text-center py-24 border border-dashed border-cyber-border rounded-2xl bg-cyber-card/30">
+              <div className="text-center py-24 border border-dashed border-slate-300 dark:border-cyber-border rounded-2xl bg-slate-100/50 dark:bg-cyber-card/30">
                 <div className="w-16 h-16 mx-auto rounded-full border border-cyber-green/30 flex items-center justify-center text-cyber-green mb-4">
                   <FontAwesomeIcon icon={faRotateRight} />
                 </div>
-                <h3 className="text-lg font-bold text-white uppercase font-cyber mb-1">No Tactical Gear Matches</h3>
-                <p className="text-white/40 text-xs max-w-sm mx-auto mb-6">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white uppercase font-cyber mb-1">No Tactical Gear Matches</h3>
+                <p className="text-slate-500 dark:text-white/40 text-xs max-w-sm mx-auto mb-6">
                   No units align with your current price threshold or hardware node filters.
                 </p>
                 <button 

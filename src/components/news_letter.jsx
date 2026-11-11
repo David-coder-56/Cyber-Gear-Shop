@@ -19,8 +19,8 @@ export default function Newsletter() {
   };
 
   return (
-    <section className="bg-gradient-to-b from-black to-cyber-card py-20 px-6 text-center border-t border-cyber-border">
-      <div className="max-w-2xl mx-auto bg-black/80 backdrop-blur-xl p-8 md:p-14 rounded-3xl shadow-cyber border border-cyber-green/30 relative overflow-hidden">
+    <section className="bg-gradient-to-b from-slate-100 to-white dark:from-black dark:to-cyber-card py-20 px-6 text-center border-t border-slate-200 dark:border-cyber-border transition-colors">
+      <div className="max-w-2xl mx-auto bg-white/90 dark:bg-black/80 backdrop-blur-xl p-8 md:p-14 rounded-3xl shadow-xl dark:shadow-cyber border border-slate-200 dark:border-cyber-green/30 relative overflow-hidden">
         
         {/* Cyber Reticle corners */}
         <span className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-cyber-green" />
@@ -31,10 +31,10 @@ export default function Newsletter() {
         </span>
 
         <h2 className="text-cyber-green text-3xl md:text-4xl font-black uppercase tracking-tight mb-4 font-cyber">
-          Join the <span className="text-white">Cyber Network</span>
+          Join the <span className="text-slate-900 dark:text-white">Cyber Network</span>
         </h2>
         
-        <p className="text-white/80 text-sm md:text-base mb-8 leading-relaxed font-mono">
+        <p className="text-slate-600 dark:text-white/80 text-sm md:text-base mb-8 leading-relaxed font-mono">
           Receive direct firmware drops, prototype clearances, tournament discounts, and hardware blueprints before public launch.
         </p>
 
@@ -55,7 +55,7 @@ export default function Newsletter() {
               placeholder="Enter encrypted email coordinate..."
               required
               aria-label="Email address for updates"
-              className="flex-1 bg-black/90 text-white border border-cyber-border outline-none p-4 rounded-xl focus:border-cyber-green transition-all placeholder:text-white/40 font-mono text-sm"
+              className="flex-1 bg-slate-50 dark:bg-black/90 text-slate-900 dark:text-white border border-slate-300 dark:border-cyber-border outline-none p-4 rounded-xl focus:border-cyber-green transition-all placeholder:text-slate-400 dark:placeholder:text-white/40 font-mono text-sm"
             />
             <button 
               type="submit" 
@@ -67,7 +67,7 @@ export default function Newsletter() {
           </form>
         )}
 
-        <small className="text-white/40 text-[11px] font-mono uppercase tracking-widest block mt-4">
+        <small className="text-slate-400 dark:text-white/40 text-[11px] font-mono uppercase tracking-widest block mt-4">
           Quantum encrypted. Zero tracking spam. Unsubscribe anytime.
         </small>
       </div>
